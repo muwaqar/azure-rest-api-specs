@@ -1,0 +1,1487 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "HybridResolverManagementClient",
+      "description": "The Hybrid DNS Resolver Management Client.",
+      "version": "2020-01-01-preview"
+    },
+    "host": "management.azure.com",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+      "azure_auth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "flow": "implicit",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        }
+      }
+    },
+    "paths": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/hybridResolvers/{hybridResolverName}": {
+        "put": {
+          "tags": [
+            "HybridResolvers"
+          ],
+          "operationId": "HybridResolvers_CreateOrUpdate",
+          "description": "Creates or updates a Hybrid DNS resolver. Does not modify conditional forwarding rules, virtual network links or the ExpressRoute gateway associated with the resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/HybridResolver"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the Hybrid DNS resolver. Omit this value to always overwrite the current resolver. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes."
+            },
+            {
+              "name": "If-None-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfNoneMatch",
+              "description": "Set to '*' to allow a new Hybrid DNS resolver to be created, but to prevent updating an existing resolver. Other values will be ignored."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The Hybrid DNS resolver has been created.",
+              "schema": {
+                "$ref": "#/definitions/HybridResolver"
+              }
+            },
+            "200": {
+              "description": "The Hybrid DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/HybridResolver"
+              }
+            },
+            "202": {
+              "description": "The Hybrid DNS resolver upsert operation has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT Hybrid DNS resolver": {
+              "$ref": "./examples/HybridResolverPut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "HybridResolvers"
+          ],
+          "operationId": "HybridResolvers_Update",
+          "description": "Updates a Hybrid DNS resolver. Does not modify conditional forwarding rules, virtual network links or the ExpressRoute gateway associated with the resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/HybridResolver"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the Hybrid DNS resolver. Omit this value to always overwrite the current resolver. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The Hybrid DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/HybridResolver"
+              }
+            },
+            "202": {
+              "description": "The Hybrid DNS resolver update operation has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH Hybrid DNS resolver": {
+              "$ref": "./examples/HybridResolverPatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "HybridResolvers"
+          ],
+          "operationId": "HybridResolvers_Delete",
+          "description": "Deletes a Hybrid DNS resolver. WARNING: All conditional forwarding rules within the resolver will also be deleted. This operation cannot be undone. This operation does not delete or modify the ExpressRoute gateway associated with the resolver. Hybrid DNS resolver cannot be deleted unless all virtual network links to it are removed.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the Hybrid DNS resolver. Omit this value to always delete the current resolver. Specify the last-seen ETag value to prevent accidentally deleting any concurrent changes."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The Hybrid DNS resolver has been deleted."
+            },
+            "202": {
+              "description": "The Hybrid DNS resolver delete operation has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The Hybrid DNS resolver was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE Hybrid DNS resolver": {
+              "$ref": "./examples/HybridResolverDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "HybridResolvers"
+          ],
+          "operationId": "HybridResolvers_Get",
+          "description": "Gets a Hybrid DNS resolver. Retrieves the resolver properties, but not the conditional forwarding rules or virtual network links for the resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The Hybrid DNS resolver was found.",
+              "schema": {
+                "$ref": "#/definitions/HybridResolver"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET Hybrid DNS resolver": {
+              "$ref": "./examples/HybridResolverGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/providers/Microsoft.Network/hybridResolvers": {
+        "get": {
+          "tags": [
+            "HybridResolvers"
+          ],
+          "operationId": "HybridResolvers_List",
+          "description": "Lists the Hybrid DNS resolvers in all resource groups in a subscription.",
+          "parameters": [
+            {
+              "name": "$top",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "format": "int32",
+              "description": "The maximum number of Hybrid DNS resolvrs to return. If not specified, returns up to 100 resolvers."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/HybridResolverListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET Hybrid DNS resolvers by Subscription": {
+              "$ref": "./examples/HybridResolverListInSubscription.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/hybridResolvers": {
+        "get": {
+          "tags": [
+            "HybridResolvers"
+          ],
+          "operationId": "HybridResolvers_ListByResourceGroup",
+          "description": "Lists the Hybrid DNS resolvers within a resource group.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "$top",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "format": "int32",
+              "description": "The maximum number of Hybrid DNS resolvers to return. If not specified, returns up to 100 resolvers."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/HybridResolverListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET Hybrid DNS resolvers by Resource Group": {
+              "$ref": "./examples/HybridResolverListInResourceGroup.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/hybridResolvers/{hybridResolverName}/virtualNetworkLinks/{virtualNetworkLinkName}": {
+        "put": {
+          "tags": [
+            "VirtualNetworkLinks"
+          ],
+          "operationId": "VirtualNetworkLinks_CreateOrUpdate",
+          "description": "Creates or updates a virtual network link to the specified Hybrid DNS resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "virtualNetworkLinkName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the virtual network link."
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/VirtualNetworkLink"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the virtual network link to the Hybrid DNS resolver. Omit this value to always overwrite the current link. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes."
+            },
+            {
+              "name": "If-None-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfNoneMatch",
+              "description": "Set to '*' to allow a new virtual network link to the Hybrid DNS resolver to be created, but to prevent updating an existing link. Other values will be ignored."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The virtual network link to the Hybrid DNS resolver has been created.",
+              "schema": {
+                "$ref": "#/definitions/VirtualNetworkLink"
+              }
+            },
+            "200": {
+              "description": "The virtual network link to the Hybrid DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/VirtualNetworkLink"
+              }
+            },
+            "202": {
+              "description": "The operation to upsert virtual network link to the Hybrid DNS resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT Hybrid DNS resolver virtual network link": {
+              "$ref": "./examples/VirtualNetworkLinkPut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "VirtualNetworkLinks"
+          ],
+          "operationId": "VirtualNetworkLinks_Update",
+          "description": "Updates a virtual network link to the specified Hybrid DNS resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "virtualNetworkLinkName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the virtual network link."
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/VirtualNetworkLink"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the virtual network link to the Hybrid DNS resolver. Omit this value to always overwrite the current link. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The virtual network link to the Hybrid DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/VirtualNetworkLink"
+              }
+            },
+            "202": {
+              "description": "The operation to link virtual network link to Hybrid DNS resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH Hybrid DNS resolver virtual network link": {
+              "$ref": "./examples/VirtualNetworkLinkPatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "VirtualNetworkLinks"
+          ],
+          "operationId": "VirtualNetworkLinks_Delete",
+          "description": "Deletes a virtual network link to the specified Hybrid DNS resolver. This operation cannot be undone.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "virtualNetworkLinkName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the virtual network link."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the virtual network link to the Hybrid DNS resolver. Omit this value to always delete the current link. Specify the last-seen ETag value to prevent accidentally deleting any concurrent changes."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The virtual network link to the Hybrid DNS resolver has been deleted."
+            },
+            "202": {
+              "description": "The operation to delete virtual network link to the Hybrid DNS resolver has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The virtual network link to the Hybrid DNS resolver was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE Hybrid DNS resolver virtual network link": {
+              "$ref": "./examples/VirtualNetworkLinkDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "VirtualNetworkLinks"
+          ],
+          "operationId": "VirtualNetworkLinks_Get",
+          "description": "Gets a virtual network link to the specified Hybrid DNS resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "virtualNetworkLinkName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the virtual network link."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The virtual network link to the Hybrid DNS resolver was found.",
+              "schema": {
+                "$ref": "#/definitions/VirtualNetworkLink"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET Hybrid DNS resolver virtual network link": {
+              "$ref": "./examples/VirtualNetworkLinkGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/hybridResolvers/{hybridResolverName}/virtualNetworkLinks": {
+        "get": {
+          "tags": [
+            "VirtualNetworkLinks"
+          ],
+          "operationId": "VirtualNetworkLinks_List",
+          "description": "Lists the virtual network links to the specified Hybrid DNS resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "$top",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "format": "int32",
+              "description": "The maximum number of virtual network links to return. If not specified, returns up to 100 virtual network links."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/VirtualNetworkLinkListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET virtual network links by Hybrid DNS resolver": {
+              "$ref": "./examples/VirtualNetworkLinkList.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/hybridResolvers/{hybridResolverName}/conditionalForwardingRules/{conditionalForwardingRuleName}": {
+        "put": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_CreateOrUpdate",
+          "description": "Creates or updates a conditional forwarding rule for the specified Hybrid DNS resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "conditionalForwardingRuleName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the conditional forwarding rule."
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the conditional forwarding rule for the Hybrid DNS resolver. Omit this value to always overwrite the current rule. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes."
+            },
+            {
+              "name": "If-None-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfNoneMatch",
+              "description": "Set to '*' to allow a new conditional forwarding rule for the Hybrid DNS resolver to be created, but to prevent updating an existing rule. Other values will be ignored."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The conditional forwarding rule for the Hybrid DNS resolver has been created.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              }
+            },
+            "200": {
+              "description": "The conditional forwarding rule for the Hybrid DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              }
+            },
+            "202": {
+              "description": "The operation to upsert conditional forwarding rule for the Hybrid DNS resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT Hybrid DNS resolver conditional forwarding rule": {
+              "$ref": "./examples/ConditionalForwardingRulePut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_Update",
+          "description": "Updates a conditional forwarding rule for the specified Hybrid DNS resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "conditionalForwardingRuleName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the conditional forwarding rule."
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the conditional forwarding rule for the Hybrid DNS resolver. Omit this value to always overwrite the current rule. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding rule for the Hybrid DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              }
+            },
+            "202": {
+              "description": "The operation to add conditional forwarding rule for Hybrid DNS resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH Hybrid DNS resolver conditional forwarding rule": {
+              "$ref": "./examples/ConditionalForwardingRulePatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_Delete",
+          "description": "Deletes a conditional forwarding rule for the specified Hybrid DNS resolver. This operation cannot be undone.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "conditionalForwardingRuleName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the conditional forwarding rule."
+            },
+            {
+              "name": "If-Match",
+              "in": "header",
+              "required": false,
+              "type": "string",
+              "x-ms-client-name": "IfMatch",
+              "description": "The ETag of the conditional forwarding rule to the Hybrid DNS resolver. Omit this value to always delete the current rule. Specify the last-seen ETag value to prevent accidentally deleting any concurrent changes."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding rule for the Hybrid DNS resolver has been deleted."
+            },
+            "202": {
+              "description": "The operation to delete conditional forwarding rule for the Hybrid DNS resolver has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The conditional forwarding rule for the Hybrid DNS resolver was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE Hybrid DNS resolver conditional forwarding rule": {
+              "$ref": "./examples/ConditionalForwardingRuleDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_Get",
+          "description": "Gets a conditional forwarding rule for the specified Hybrid DNS resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "conditionalForwardingRuleName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the conditional forwarding rule."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding rule for the Hybrid DNS resolver was found.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET Hybrid DNS resolver conditional forwarding rule": {
+              "$ref": "./examples/ConditionalForwardingRuleGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/hybridResolvers/{hybridResolverName}/conditionalForwardingRules": {
+        "get": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_List",
+          "description": "Lists the conditional forwarding rules for the specified Hybrid DNS resolver.",
+          "parameters": [
+            {
+              "name": "resourceGroupName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the resource group."
+            },
+            {
+              "name": "hybridResolverName",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "The name of the Hybrid DNS resolver."
+            },
+            {
+              "name": "$top",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "format": "int32",
+              "description": "The maximum number of conditional forwarding rules to return. If not specified, returns up to 100 conditional forwarding rules."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRuleListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET conditional forwarding rules by Hybrid DNS resolver": {
+              "$ref": "./examples/ConditionalForwardingRuleList.json"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "HybridResolverProperties": {
+        "properties": {
+          "virtualNetworkGateway": {
+            "$ref": "#/definitions/SubResource",
+            "description": "The reference to the virtual network gateway."
+          },
+          "maxNumberOfConditionalForwardingRules": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The maximum number of conditional forwarding rules that can be created in this Hybrid DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "readOnly": true
+          },
+          "numberOfConditionalForwardingRules": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The current number of conditional forwarding rules in this Hybrid DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "readOnly": true
+          },
+          "maxNumberOfVirtualNetworkLinks": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The maximum number of virtual networks that can be linked to this Hybrid DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "readOnly": true
+          },
+          "numberOfVirtualNetworkLinks": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The current number of virtual networks that are linked to this Hybrid DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "readOnly": true
+          },
+          "hybridResolverState": {
+            "type": "string",
+            "description": "The status of the Hybrid DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "enum": [
+              "Connected",
+              "Disconnected"
+            ],
+            "x-ms-enum": {
+              "name": "HybridResolverState",
+              "modelAsString": true
+            },
+            "readOnly": true
+          },
+          "provisioningState": {
+            "$ref": "#/definitions/ProvisioningState",
+            "description": "The current provisioning state of the Hybrid DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "readOnly": true
+          }
+        },
+        "description": "Represents the properties of the Hybrid DNS resolver."
+      },
+      "HybridResolver": {
+        "properties": {
+          "etag": {
+            "type": "string",
+            "description": "The ETag of the resolver."
+          },
+          "properties": {
+            "x-ms-client-flatten": true,
+            "$ref": "#/definitions/HybridResolverProperties",
+            "description": "Properties of the resolver."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/TrackedResource"
+          }
+        ],
+        "description": "Describes a Hybrid DNS resolver."
+      },
+      "HybridResolverListResult": {
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/HybridResolver"
+            },
+            "description": "Enumeration of the Hybrid DNS resolvers."
+          },
+          "nextLink": {
+            "type": "string",
+            "description": "The continuation token for the next page of results.",
+            "readOnly": true
+          }
+        },
+        "description": "The response to a Hybrid DNS resolver list operation."
+      },
+      "VirtualNetworkLinkProperties": {
+        "properties": {
+          "virtualNetwork": {
+            "$ref": "#/definitions/SubResource",
+            "description": "The reference to the virtual network."
+          },
+          "provisioningState": {
+            "$ref": "#/definitions/ProvisioningState",
+            "description": "The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.",
+            "readOnly": true
+          }
+        },
+        "description": "Represents the properties of the virtual network link to the Hybrid DNS resolver."
+      },
+      "VirtualNetworkLink": {
+        "properties": {
+          "etag": {
+            "type": "string",
+            "description": "The ETag of the virtual network link."
+          },
+          "properties": {
+            "x-ms-client-flatten": true,
+            "$ref": "#/definitions/VirtualNetworkLinkProperties",
+            "description": "Properties of the virtual network link to the Hybrid DNS resolver."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ProxyResource"
+          }
+        ],
+        "description": "Describes a link to virtual network for a Hybrid DNS resolver."
+      },
+      "VirtualNetworkLinkListResult": {
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/VirtualNetworkLink"
+            },
+            "description": "Enumeration of the virtual network links to the Hybrid DNS resolver."
+          },
+          "nextLink": {
+            "type": "string",
+            "description": "The continuation token for the next page of results.",
+            "readOnly": true
+          }
+        },
+        "description": "The response to a virtual network links to Hybrid DNS resolver list operation."
+      },
+      "TargetDnsServer": {
+        "properties": {
+          "ipAddress": {
+            "type": "string",
+            "description": "DNS server IP address."
+          },
+          "port": {
+            "type": "integer",
+            "description": "DNS server port."
+          }
+        },
+        "description": "Describes a server to forward the DNS queries to."
+      },
+      "ConditionalForwardingRuleState": {
+        "properties": {
+          "virtualNetworkLinkName": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The name of the virtual network link."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "InProgress",
+              "Succeeded",
+              "Failed"
+            ],
+            "x-ms-enum": {
+              "name": "ConditionalForwardingRuleStatus",
+              "modelAsString": true
+            },
+            "readOnly": true,
+            "description": "The current status of the conditional forwarding rule for the virtual network link to the Hybrid DNS resolver."
+          }
+        },
+        "description": "Represents the status of a conditional forwarding rule for a specific virtual network link to the Hybrid DNS resolver."
+      },
+      "ConditionalForwardingRuleProperties": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name for which the conditional forwarding rule will be applicable to. Conditional forwarding rule with domain 'contoso.com' would be applicable to any DNS query ending with 'contoso.com'. In case a DNS query matches multiple rules, the rule with the most specific domain name takes precedence. This value cannot be changed after the rule has been created."
+          },
+          "type": {
+            "type": "string",
+            "description": "The action to take as part of rule execution. Use 'Forward' to route the DNS queries for the domain to servers specified as part of `targetDnsServers` property. Use 'Skip' to skip subsequent conditional forwarding rule execution for the specified domain. This value cannot be changed after the rule has been created.",
+            "enum": [
+              "Forward",
+              "Skip"
+            ],
+            "x-ms-enum": {
+              "name": "ConditionalForwardingRuleType",
+              "modelAsString": true
+            }
+          },
+          "targetDnsServers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/TargetDnsServer"
+            },
+            "description": "Enumeration of DNS servers to forward the DNS query to. This property is only applicable when the conditional forwarding rule `type` is set to 'Forward'."
+          },
+          "conditionalForwardingRuleState": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ConditionalForwardingRuleState"
+            },
+            "readOnly": true,
+            "description": "State of the conditional forwarding rule for every virtual network link to the Hybrid DNS resolver. This is a read-only property and any attempt to set this value will be ignored."
+          },
+          "provisioningState": {
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true,
+            "description": "The current provisioning state of the conditional forwarding rule. This is a read-only property and any attempt to set this value will be ignored."
+          }
+        },
+        "description": "Represents the properties of the virtual network link to the Hybrid DNS resolver."
+      },
+      "ConditionalForwardingRule": {
+        "properties": {
+          "etag": {
+            "type": "string",
+            "description": "The ETag of the conditional forwarding rule."
+          },
+          "properties": {
+            "x-ms-client-flatten": true,
+            "$ref": "#/definitions/ConditionalForwardingRuleProperties",
+            "description": "Properties of the conditional forwarding rule for the Hybrid DNS resolver."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ProxyResource"
+          }
+        ],
+        "description": "Describes a conditional forwarding rule for a Hybrid DNS resolver."
+      },
+      "ConditionalForwardingRuleListResult": {
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ConditionalForwardingRule"
+            },
+            "description": "Enumeration of the conditional forwarding rules for the Hybrid DNS resolver."
+          },
+          "nextLink": {
+            "type": "string",
+            "description": "The continuation token for the next page of results.",
+            "readOnly": true
+          }
+        },
+        "description": "The response to a conditional forwardings rules for Hybrid DNS resolver list operation."
+      },
+      "ProvisioningState": {
+        "type": "string",
+        "enum": [
+          "Creating",
+          "Updating",
+          "Deleting",
+          "Succeeded",
+          "Failed",
+          "Canceled"
+        ],
+        "x-ms-enum": {
+          "name": "ProvisioningState",
+          "modelAsString": true
+        },
+        "description": "The current provisioning state of the resource."
+      },
+      "Resource": {
+        "description": "The core properties of ARM resources",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/hybridResolvers/{hybridResolverName}'."
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The name of the resource"
+          },
+          "type": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The type of the resource. Example - 'Microsoft.Network/hybridResolvers'."
+          }
+        },
+        "x-ms-azure-resource": true
+      },
+      "TrackedResource": {
+        "description": "The resource model definition for a ARM tracked top level resource",
+        "properties": {
+          "tags": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "x-ms-mutability": [
+              "read",
+              "create",
+              "update"
+            ],
+            "description": "Resource tags."
+          },
+          "location": {
+            "type": "string",
+            "x-ms-mutability": [
+              "read",
+              "create"
+            ],
+            "description": "The Azure Region where the resource lives"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/Resource"
+          }
+        ]
+      },
+      "ProxyResource": {
+        "description": "The resource model definition for an ARM proxy resource.",
+        "allOf": [
+          {
+            "$ref": "#/definitions/Resource"
+          }
+        ]
+      },
+      "SubResource": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Resource ID."
+          }
+        },
+        "description": "Reference to another subresource.",
+        "x-ms-azure-resource": true
+      },
+      "CloudError": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/definitions/CloudErrorBody",
+            "description": "The error message body"
+          }
+        },
+        "x-ms-external": true,
+        "description": "An error message"
+      },
+      "CloudErrorBody": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "A description of what caused the error"
+          },
+          "target": {
+            "type": "string",
+            "description": "The target resource of the error message"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CloudErrorBody"
+            },
+            "description": "Extra error information"
+          }
+        },
+        "x-ms-external": true,
+        "description": "The body of an error message"
+      }
+    },
+    "parameters": {
+      "SubscriptionIdParameter": {
+        "name": "subscriptionId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+      },
+      "ApiVersionParameter": {
+        "name": "api-version",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Client API Version."
+      }
+    }
+  }
