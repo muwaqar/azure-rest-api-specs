@@ -1,0 +1,1986 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "ManagedResolverManagementClient",
+      "description": "The Managed DNS Resolver Management Client.",
+      "version": "2020-01-01-preview"
+    },
+    "host": "management.azure.com",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+      "azure_auth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "flow": "implicit",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        }
+      }
+    },
+    "paths": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}": {
+        "put": {
+          "tags": [
+            "ManagedResolvers"
+          ],
+          "operationId": "ManagedResolvers_CreateOrUpdate",
+          "description": "Creates or updates a managed DNS resolver. Does not modify conditional forwarding ruleset or the virtual network associated with the resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ManagedResolver"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            },
+            {
+              "$ref": "#/parameters/IfNoneMatchParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The managed DNS resolver has been created.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolver"
+              }
+            },
+            "200": {
+              "description": "The managed DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolver"
+              }
+            },
+            "202": {
+              "description": "The managed DNS resolver upsert operation has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT managed DNS resolver": {
+              "$ref": "./examples/ManagedResolverPut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "ManagedResolvers"
+          ],
+          "operationId": "ManagedResolvers_Update",
+          "description": "Updates a managed DNS resolver. Does not modify conditional forwarding ruleset or the virtual network associated with the resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ManagedResolver"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolver"
+              }
+            },
+            "202": {
+              "description": "The managed DNS resolver update operation has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH managed DNS resolver": {
+              "$ref": "./examples/ManagedResolverPatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "ManagedResolvers"
+          ],
+          "operationId": "ManagedResolvers_Delete",
+          "description": "Deletes a managed DNS resolver. WARNING: This operation cannot be undone. This operation does not delete or modify the conditional forwarding ruleset or the virtual network associated with the resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver has been deleted."
+            },
+            "202": {
+              "description": "The managed DNS resolver delete operation has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The managed DNS resolver was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE managed DNS resolver": {
+              "$ref": "./examples/ManagedResolverDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "ManagedResolvers"
+          ],
+          "operationId": "ManagedResolvers_Get",
+          "description": "Gets a managed DNS resolver. Retrieves the resolver properties, but not the rules in the conditional forwarding ruleset associated with the resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver was found.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolver"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET managed DNS resolver": {
+              "$ref": "./examples/ManagedResolverGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers": {
+        "get": {
+          "tags": [
+            "ManagedResolvers"
+          ],
+          "operationId": "ManagedResolvers_ListByResourceGroup",
+          "description": "Lists the managed DNS resolvers within a resource group.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET managed DNS resolvers by Resource Group": {
+              "$ref": "./examples/ManagedResolverListInResourceGroup.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/providers/Microsoft.Network/managedResolvers": {
+        "get": {
+          "tags": [
+            "ManagedResolvers"
+          ],
+          "operationId": "ManagedResolvers_List",
+          "description": "Lists the managed DNS resolvers in all resource groups in a subscription.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET managed DNS resolvers by subscription": {
+              "$ref": "./examples/ManagedResolverListInSubscription.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/endpoints/{endpointName}": {
+        "put": {
+          "tags": [
+            "Endpoints"
+          ],
+          "operationId": "Endpoints_CreateOrUpdate",
+          "description": "Creates or updates a managed DNS resolver endpoint.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/EndpointNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Endpoint"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            },
+            {
+              "$ref": "#/parameters/IfNoneMatchParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The managed DNS resolver endpoint has been created.",
+              "schema": {
+                "$ref": "#/definitions/Endpoint"
+              }
+            },
+            "200": {
+              "description": "The managed DNS resolver endpoint has been updated.",
+              "schema": {
+                "$ref": "#/definitions/Endpoint"
+              }
+            },
+            "202": {
+              "description": "The managed DNS resolver endpoint upsert operation has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT managed DNS resolver endpoint": {
+              "$ref": "./examples/EndpointPut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "Endpoints"
+          ],
+          "operationId": "Endpoints_Update",
+          "description": "Updates a managed DNS resolver endpoint.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/EndpointNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Endpoint"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver endpoint has been updated.",
+              "schema": {
+                "$ref": "#/definitions/Endpoint"
+              }
+            },
+            "202": {
+              "description": "The managed DNS resolver endpoint update operation has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH managed DNS resolver endpoint": {
+              "$ref": "./examples/EndpointPatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Endpoints"
+          ],
+          "operationId": "Endpoints_Delete",
+          "description": "Deletes a managed DNS resolver endpoint. WARNING: This operation cannot be undone.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/EndpointNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver endpoint has been deleted."
+            },
+            "202": {
+              "description": "The managed DNS resolver endpoint delete operation has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The managed DNS resolver endpoint was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE managed DNS resolver endpoint": {
+              "$ref": "./examples/EndpointDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Endpoints"
+          ],
+          "operationId": "Endpoints_Get",
+          "description": "Gets a managed DNS resolver endpoint.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/EndpointNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver endpoint was found.",
+              "schema": {
+                "$ref": "#/definitions/Endpoint"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET managed DNS resolver endpoint": {
+              "$ref": "./examples/EndpointGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/endpoints": {
+        "get": {
+          "tags": [
+            "Endpoints"
+          ],
+          "operationId": "Endpoints_List",
+          "description": "Lists the endpoints for the specified managed DNS resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/EndpointListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET endpoints by managed DNS resolver": {
+              "$ref": "./examples/EndpointList.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/conditionalForwardingRulesets/{conditionalForwardingRulesetName}": {
+        "put": {
+          "tags": [
+            "ConditionalForwardingRulesets"
+          ],
+          "operationId": "ConditionalForwardingRulesets_CreateOrUpdate",
+          "description": "Creates or updates a conditional forwarding ruleset. Does not modify links to managed resolvers or conditional forwarding rules within the ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRuleset"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            },
+            {
+              "$ref": "#/parameters/IfNoneMatchParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The conditional forwarding ruleset has been created.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRuleset"
+              }
+            },
+            "200": {
+              "description": "The conditional forwarding ruleset has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRuleset"
+              }
+            },
+            "202": {
+              "description": "The conditional forwarding ruleset upsert operation has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT conditional forwarding ruleset": {
+              "$ref": "./examples/ConditionalForwardingRulesetPut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "ConditionalForwardingRulesets"
+          ],
+          "operationId": "ConditionalForwardingRulesets_Update",
+          "description": "Updates a conditional forwarding ruleset. Does not modify links to managed resolvers or conditional forwarding rules within the ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRuleset"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding ruleset has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRuleset"
+              }
+            },
+            "202": {
+              "description": "The conditional forwarding ruleset update operation has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH conditional forwarding ruleset": {
+              "$ref": "./examples/ConditionalForwardingRulesetPatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "ConditionalForwardingRulesets"
+          ],
+          "operationId": "ConditionalForwardingRulesets_Delete",
+          "description": "Deletes a conditional forwarding ruleset. WARNING: This operation cannot be undone. All conditional forwarding rules within the ruleset will also be deleted. Conditional forwarding ruleset cannot be deleted unless all managed resolver links to it are removed.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding ruleset has been deleted."
+            },
+            "202": {
+              "description": "The conditional forwarding ruleset delete operation has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The conditional forwarding ruleset was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE conditional forwarding ruleset": {
+              "$ref": "./examples/ConditionalForwardingRulesetDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "ConditionalForwardingRulesets"
+          ],
+          "operationId": "ConditionalForwardingRulesets_Get",
+          "description": "Gets a conditional forwarding ruleset. Retrieves the ruleset properties, but not the managed resolver links or the conditional forwarding rules within the ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding ruleset was found.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRuleset"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET conditional forwarding ruleset": {
+              "$ref": "./examples/ConditionalForwardingRulesetGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/conditionalForwardingRulesets": {
+        "get": {
+          "tags": [
+            "ConditionalForwardingRulesets"
+          ],
+          "operationId": "ConditionalForwardingRulesets_ListByResourceGroup",
+          "description": "Lists the conditional forwarding rulesets within a resource group.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRulesetListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET conditional forwarding ruleset by resource group": {
+              "$ref": "./examples/ConditionalForwardingRulesetListInResourceGroup.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/providers/Microsoft.Network/conditionalForwardingRulesets": {
+        "get": {
+          "tags": [
+            "ConditionalForwardingRulesets"
+          ],
+          "operationId": "ConditionalForwardingRulesets_List",
+          "description": "Lists the conditional forwarding rulesets in all resource groups in a subscription.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRulesetListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET conditional forwarding ruleset by subscription": {
+              "$ref": "./examples/ConditionalForwardingRulesetListInSubscription.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/conditionalForwardingRulesets/{conditionalForwardingRulesetName}/conditionalForwardingRules/{conditionalForwardingRuleName}": {
+        "put": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_CreateOrUpdate",
+          "description": "Creates or updates a conditional forwarding rule in the specified ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRuleNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            },
+            {
+              "$ref": "#/parameters/IfNoneMatchParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The conditional forwarding rule has been created.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              }
+            },
+            "200": {
+              "description": "The conditional forwarding rule has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              }
+            },
+            "202": {
+              "description": "The operation to upsert conditional forwarding rule has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT conditional forwarding rule": {
+              "$ref": "./examples/ConditionalForwardingRulePut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_Update",
+          "description": "Updates a conditional forwarding rule in the specified ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRuleNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding rule has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              }
+            },
+            "202": {
+              "description": "The operation to add conditional forwarding rule for Managed DNS resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH conditional forwarding rule": {
+              "$ref": "./examples/ConditionalForwardingRulePatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_Delete",
+          "description": "Deletes a conditional forwarding rule in the specified rulset. WARNING: This operation cannot be undone.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRuleNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding rule has been deleted."
+            },
+            "202": {
+              "description": "The operation to delete conditional forwarding rule has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The conditional forwarding rule was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE conditional forwarding rule": {
+              "$ref": "./examples/ConditionalForwardingRuleDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_Get",
+          "description": "Gets a conditional forwarding rule in the specified ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRuleNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The conditional forwarding rule was found.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRule"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET conditional forwarding rule": {
+              "$ref": "./examples/ConditionalForwardingRuleGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/conditionalForwardingRulesets/{conditionalForwardingRulesetName}/conditionalForwardingRules": {
+        "get": {
+          "tags": [
+            "ConditionalForwardingRules"
+          ],
+          "operationId": "ConditionalForwardingRules_List",
+          "description": "Lists the conditional forwarding rules in the specified ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ConditionalForwardingRuleListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET conditional forwarding rules by ruleset": {
+              "$ref": "./examples/ConditionalForwardingRuleList.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/conditionalForwardingRulesets/{conditionalForwardingRulesetName}/managedResolverLinks/{managedResolverLinkName}": {
+        "put": {
+          "tags": [
+            "ManagedResolverLinks"
+          ],
+          "operationId": "ManagedResolverLinks_CreateOrUpdate",
+          "description": "Creates or updates a managed DNS resolver link to a specified conditional forwarding ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverLinkNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverLink"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            },
+            {
+              "$ref": "#/parameters/IfNoneMatchParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The managed DNS resolver link has been created.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverLink"
+              }
+            },
+            "200": {
+              "description": "The managed DNS resolver link has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverLink"
+              }
+            },
+            "202": {
+              "description": "The operation to upsert managed DNS resolver link has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT managed DNS resolver link": {
+              "$ref": "./examples/ManagedResolverLinkPut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "ManagedResolverLinks"
+          ],
+          "operationId": "ManagedResolverLinks_Update",
+          "description": "Updates a managed DNS resolver link to a specified conditional forwarding ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverLinkNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverLink"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver link has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverLink"
+              }
+            },
+            "202": {
+              "description": "The operation to add managed DNS resolver link for Managed DNS resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH managed DNS resolver link": {
+              "$ref": "./examples/ManagedResolverLinkPatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "ManagedResolverLinks"
+          ],
+          "operationId": "ManagedResolverLinks_Delete",
+          "description": "Deletes a managed DNS resolver link to a specified conditional forwarding ruleset. WARNING: This operation cannot be undone.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverLinkNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver link has been deleted."
+            },
+            "202": {
+              "description": "The operation to delete managed DNS resolver link has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The managed DNS resolver link was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE managed DNS resolver link": {
+              "$ref": "./examples/ManagedResolverLinkDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "ManagedResolverLinks"
+          ],
+          "operationId": "ManagedResolverLinks_Get",
+          "description": "Gets a managed DNS resolver link to a specified conditional forwarding ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverLinkNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The managed DNS resolver link was found.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverLink"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET managed DNS resolver link": {
+              "$ref": "./examples/ManagedResolverLinkGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/conditionalForwardingRulesets/{conditionalForwardingRulesetName}/managedResolverLinks": {
+        "get": {
+          "tags": [
+            "ManagedResolverLinks"
+          ],
+          "operationId": "ManagedResolverLinks_List",
+          "description": "Lists the managed DNS resolver links to a specified conditional forwarding ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ConditionalForwardingRulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverLinkListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET managed DNS resolver links by ruleset": {
+              "$ref": "./examples/ManagedResolverLinkList.json"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "ManagedResolverProperties": {
+        "description": "Represents the properties of a managed DNS resolver.",
+        "properties": {
+          "virtualNetwork": {
+            "$ref": "#/definitions/SubResource",
+            "description": "The reference to the virtual network. This cannot be changed after creation."
+          },
+          "conditionalForwardingRuleset": {
+            "$ref": "#/definitions/SubResource",
+            "description": "The reference to the managed DNS resolver link to the conditional forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "readOnly": true
+          },
+          "sku": {
+            "$ref": "#/definitions/ManagedResolverSku",
+            "description": "The managed DNS resolver SKU."
+          },
+          "provisioningState": {
+            "description": "The current provisioning state of the managed DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true
+          }
+        }
+      },
+      "ManagedResolver": {
+        "description": "Describes a managed DNS resolver.",
+        "properties": {
+          "etag": {
+            "description": "The ETag of the managed DNS resolver.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of a managed DNS resolver.",
+            "$ref": "#/definitions/ManagedResolverProperties",
+            "x-ms-client-flatten": true
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/TrackedResource"
+          }
+        ]
+      },
+      "ManagedResolverListResult": {
+        "description": "The response to an enumeration operation on managed DNS resolvers.",
+        "properties": {
+          "value": {
+            "description": "Enumeration of the managed DNS resolvers.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ManagedResolver"
+            }
+          },
+          "nextLink": {
+            "description": "The continuation token for the next page of results.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "EndpointProperties": {
+        "description": "Represents the properties of a managed DNS resolver endpoint.",
+        "properties": {
+          "ipConfiguration": {
+            "description": "IP configuration for the endpoint.",
+            "$ref": "#/definitions/IpConfiguration"
+          },
+          "availabilityZone": {
+            "description": "Availability zone for endpoint provisioning.",
+            "type": "string"
+          },
+          "provisioningState": {
+            "description": "The current provisioning state of the managed DNS resolver endpoint. This is a read-only property and any attempt to set this value will be ignored.",
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true
+          }
+        }
+      },
+      "Endpoint": {
+        "description": "Describes a managed DNS resolver endpoint.",
+        "properties": {
+          "etag": {
+            "description": "The ETag of the managed DNS resolver endpoint.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of a managed DNS resolver endpoint.",
+            "$ref": "#/definitions/EndpointProperties",
+            "x-ms-client-flatten": true
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ProxyResource"
+          }
+        ]
+      },
+      "EndpointListResult": {
+        "description": "The response to an enumeration operation on managed DNS resolver endpoints.",
+        "properties": {
+          "value": {
+            "description": "Enumeration of the managed DNS resolver endpoints.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Endpoint"
+            }
+          },
+          "nextLink": {
+            "description": "The continuation token for the next page of results.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ConditionalForwardingRulesetProperties": {
+        "description": "Represents the properties of a conditional forwarding ruleset.",
+        "properties": {
+          "maxNumberOfConditionalForwardingRules": {
+            "description": "The maximum number of conditional forwarding rules that can be created in this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "numberOfConditionalForwardingRules": {
+            "description": "The current number of conditional forwarding rules in this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "maxNumberOfManagedResolverLinks": {
+            "description": "The maximum number of managed DNS resolvers that can be linked to this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "numberOfManagedResolverLinks": {
+            "description": "The current number of managed DNS resolvers that are linked to this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "provisioningState": {
+            "description": "The current provisioning state of the ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true
+          }
+        }
+      },
+      "ConditionalForwardingRuleset": {
+        "description": "Describes a conditional forwarding ruleset.",
+        "properties": {
+          "etag": {
+            "description": "The ETag of the conditional forwarding ruleset.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of a conditional forwarding ruleset.",
+            "$ref": "#/definitions/ConditionalForwardingRulesetProperties",
+            "x-ms-client-flatten": true
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/TrackedResource"
+          }
+        ]
+      },
+      "ConditionalForwardingRulesetListResult": {
+        "description": "The response to an enumeration operation on conditional forwarding rulesets.",
+        "properties": {
+          "value": {
+            "description": "Enumeration of the conditional forwarding rulesets.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ConditionalForwardingRuleset"
+            }
+          },
+          "nextLink": {
+            "description": "The continuation token for the next page of results.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ConditionalForwardingRuleProperties": {
+        "description": "Represents the properties of a conditional forwarding rule within the ruleset.",
+        "properties": {
+          "domain": {
+            "description": "Domain name for which the conditional forwarding rule will be applicable to; a rule with domain 'contoso.com' would be applicable to any DNS query ending with 'contoso.com'. In case a DNS query matches multiple rules, the rule with the most specific domain name takes precedence. This value cannot be changed after the rule has been created.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The action to take as part of rule execution. Use 'Forward' to route the DNS queries for the domain to servers specified as part of `targetDnsServers` property. Use 'System' to render default behavior (skipping conditional forwarding rule execution) for the specified domain. This value cannot be changed after the rule has been created.",
+            "type": "string",
+            "enum": [
+              "Forward",
+              "System"
+            ],
+            "x-ms-enum": {
+              "name": "ConditionalForwardingRuleType",
+              "modelAsString": true
+            }
+          },
+          "targetDnsServers": {
+            "description": "Enumeration of DNS servers to forward the DNS query to. This property is only applicable when the conditional forwarding rule `type` is set to 'Forward'.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/TargetDnsServer"
+            }
+          },
+          "provisioningState": {
+            "description": "The current provisioning state of the conditional forwarding rule. This is a read-only property and any attempt to set this value will be ignored.",
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true
+          }
+        }
+      },
+      "ConditionalForwardingRule": {
+        "description": "Describes a conditional forwarding rule within a ruleset.",
+        "properties": {
+          "etag": {
+            "description": "The ETag of the conditional forwarding rule.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of a conditional forwarding rule within the ruleset.",
+            "$ref": "#/definitions/ConditionalForwardingRuleProperties",
+            "x-ms-client-flatten": true
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ProxyResource"
+          }
+        ]
+      },
+      "ConditionalForwardingRuleListResult": {
+        "description": "The response to an enumeration operation on conditional forwarding rules within a ruleset.",
+        "properties": {
+          "value": {
+            "description": "Enumeration of the conditional forwarding rules within a ruleset.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ConditionalForwardingRule"
+            }
+          },
+          "nextLink": {
+            "description": "The continuation token for the next page of results.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ManagedResolverLinkProperties": {
+        "description": "Represents the properties of a conditional forwarding rule within the ruleset.",
+        "properties": {
+          "managedResolver": {
+            "$ref": "#/definitions/SubResource",
+            "description": "The reference to the managed DNS resolver. This cannot be changed after creation."
+          },
+          "provisioningState": {
+            "description": "The current provisioning state of the managed DNS resolver link. This is a read-only property and any attempt to set this value will be ignored.",
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true
+          }
+        }
+      },
+      "ManagedResolverLink": {
+        "description": "Describes a managed DNS resolver link to conditional forwarding ruleset.",
+        "properties": {
+          "etag": {
+            "type": "string",
+            "description": "The ETag of the managed DNS resolver link."
+          },
+          "properties": {
+            "description": "Properties of the managed DNS resolver link to the conditional forwarding ruleset.",
+            "$ref": "#/definitions/ManagedResolverLinkProperties",
+            "x-ms-client-flatten": true
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ProxyResource"
+          }
+        ]
+      },
+      "ManagedResolverLinkListResult": {
+        "description": "The response to an enumeration operation on managed DNS resolver links to a conditional forwarding ruleset.",
+        "properties": {
+          "value": {
+            "description": "Enumeration of the managed DNS resolver links to a conditional forwarding ruleset.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ManagedResolverLink"
+            }
+          },
+          "nextLink": {
+            "description": "The continuation token for the next page of results.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "IpConfiguration": {
+        "description": "Managed DNS resolver endpoint IP configuration",
+        "properties": {
+          "privateIpAddress": {
+            "description": "Private IP address allocated for the endpoint.",
+            "type": "string"
+          },
+          "subnet": {
+            "description": "The reference to the subnet used for IP allocation.",
+            "$ref": "#/definitions/SubResource"
+          }
+        }
+      },
+      "ProvisioningState": {
+        "description": "The current provisioning state of the resource.",
+        "type": "string",
+        "enum": [
+          "Creating",
+          "Updating",
+          "Deleting",
+          "Succeeded",
+          "Failed",
+          "Canceled"
+        ],
+        "x-ms-enum": {
+          "name": "ProvisioningState",
+          "modelAsString": true
+        }
+      },
+      "TargetDnsServer": {
+        "description": "Describes a server to forward the DNS queries to.",
+        "properties": {
+          "ipAddress": {
+            "description": "DNS server IP address.",
+            "type": "string"
+          },
+          "port": {
+            "description": "DNS server port.",
+            "type": "integer"
+          }
+        }
+      },
+      "Resource": {
+        "description": "The core properties of ARM resources",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "description": "Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}'."
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The name of the resource"
+          },
+          "type": {
+            "type": "string",
+            "readOnly": true,
+            "description": "The type of the resource. Example - 'Microsoft.Network/managedResolvers'."
+          }
+        },
+        "x-ms-azure-resource": true
+      },
+      "TrackedResource": {
+        "description": "The resource model definition for a ARM tracked top level resource",
+        "properties": {
+          "tags": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "x-ms-mutability": [
+              "read",
+              "create",
+              "update"
+            ],
+            "description": "Resource tags."
+          },
+          "location": {
+            "type": "string",
+            "x-ms-mutability": [
+              "read",
+              "create"
+            ],
+            "description": "The Azure Region where the resource lives"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/Resource"
+          }
+        ]
+      },
+      "ProxyResource": {
+        "description": "The resource model definition for an ARM proxy resource.",
+        "allOf": [
+          {
+            "$ref": "#/definitions/Resource"
+          }
+        ]
+      },
+      "SubResource": {
+        "description": "Reference to another ARM resource.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Resource ID."
+          }
+        },
+        "x-ms-azure-resource": true
+      },
+      "CloudError": {
+        "description": "An error message",
+        "type": "object",
+        "properties": {
+          "error": {
+            "description": "The error message body",
+            "$ref": "#/definitions/CloudErrorBody"
+          }
+        },
+        "x-ms-external": true
+      },
+      "CloudErrorBody": {
+        "description": "The body of an error message",
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "The error code",
+            "type": "string"
+          },
+          "message": {
+            "description": "A description of what caused the error",
+            "type": "string"
+          },
+          "target": {
+            "description": "The target resource of the error message",
+            "type": "string"
+          },
+          "details": {
+            "description": "Extra error information",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CloudErrorBody"
+            }
+          }
+        },
+        "x-ms-external": true
+      }
+    },
+    "parameters": {
+      "SubscriptionIdParameter": {
+        "name": "subscriptionId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+        "x-ms-parameter-location": "client"
+      },
+      "ResourceGroupNameParameter":{
+        "name": "resourceGroupName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the resource group.",
+        "x-ms-parameter-location": "method"
+      },
+      "ManagedResolverNameParameter": {
+        "name": "managedResolverName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the managed DNS resolver.",
+        "x-ms-parameter-location": "method"
+      },
+      "EndpointNameParameter": {
+        "name": "endpointName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the managed DNS resolver endpoint.",
+        "x-ms-parameter-location": "method"
+      },
+      "ConditionalForwardingRulesetNameParameter": {
+        "name": "conditionalForwardingRulesetName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the conditional forwarding ruleset.",
+        "x-ms-parameter-location": "method"
+      },
+      "ConditionalForwardingRuleNameParameter": {
+        "name": "conditionalForwardingRuleName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the conditional forwarding rule.",
+        "x-ms-parameter-location": "method"
+      },
+      "ManagedResolverLinkNameParameter": {
+        "name": "managedResolverLinkName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the managed DNS resolver link.",
+        "x-ms-parameter-location": "method"
+      },
+      "TopParameter": {
+        "name": "$top",
+        "in": "query",
+        "required": false,
+        "type": "integer",
+        "format": "int32",
+        "description": "The maximum number of results to return. If not specified, returns up to 100 results.",
+        "x-ms-parameter-location": "method"
+      },
+      "ApiVersionParameter": {
+        "name": "api-version",
+        "in": "query",
+        "required": true,
+        "type": "string",
+        "description": "Client API Version.",
+        "x-ms-parameter-location": "client"
+      },
+      "IfMatchParameter": {
+        "name": "If-Match",
+        "in": "header",
+        "required": false,
+        "type": "string",
+        "x-ms-client-name": "IfMatch",
+        "description": "The ETag of the resource. Omit this value to always overwrite the current resource. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes.",
+        "x-ms-parameter-location": "method"
+      },
+      "IfNoneMatchParameter": {
+        "name": "If-None-Match",
+        "in": "header",
+        "required": false,
+        "type": "string",
+        "x-ms-client-name": "IfNoneMatch",
+        "description": "Set to '*' to allow a new resource to be created, but to prevent updating an existing resource. Other values will be ignored.",
+        "x-ms-parameter-location": "method"
+      },
+    }
+  }
