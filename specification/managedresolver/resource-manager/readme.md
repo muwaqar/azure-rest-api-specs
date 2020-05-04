@@ -77,6 +77,10 @@ directive:
     from: managedresolver.json
     suppress: TrackedResourceListByImmediateParent
     reason: Another list API naming approach is used over the specs.
+  - where: $.definitions.ManagedResolverRuleProperties.properties.disabled
+    from: managedresolver.json
+    suppress: EnumInsteadOfBoolean
+    reason: Booleans are used to indicate binary states of the property, enum is not appropriate.
   - where: $.definitions.Resource
     from: types.json
     suppress: DescriptionAndTitleMissing
