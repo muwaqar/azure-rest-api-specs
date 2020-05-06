@@ -1383,7 +1383,7 @@
             "description": "Domain name for which the managed resolver rule will be applicable to; a rule with domain 'contoso.com' would be applicable to any DNS query ending with 'contoso.com'. In case a DNS query matches multiple rules, the rule with the most specific domain name takes precedence. This value cannot be changed after the rule has been created.",
             "type": "string"
           },
-          "type": {
+          "action": {
             "description": "The action to take as part of rule execution. Use 'Forward' to route the DNS queries for the `domain` to servers specified as part of `targetDnsServers` property. Use 'Default' to render default behavior (skipping managed resolver rule execution) for the specified domain. This value cannot be changed after the rule has been created.",
             "type": "string",
             "enum": [
@@ -1391,7 +1391,7 @@
               "Default"
             ],
             "x-ms-enum": {
-              "name": "ManagedResolverRuleType",
+              "name": "ManagedResolverRuleAction",
               "modelAsString": true
             }
           },
@@ -1460,18 +1460,6 @@
             "description": "Private IP address for the IP configuration.",
             "type": "string",
             "readOnly": true
-          },
-          "privateIpAddressVersion": {
-            "description": "Private IP address version for the IP configuration. Currently, only IPv4 addresses are supported.",
-            "type": "string",
-            "enum": [
-              "IPv4",
-              "IPv6"
-            ],
-            "x-ms-enum": {
-              "name": "IPVersion",
-              "modelAsString": true
-            }
           }
         }
       },
