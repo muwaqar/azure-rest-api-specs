@@ -1787,8 +1787,19 @@
           },
           "privateIpAddress": {
             "description": "Private IP address for the IP configuration.",
+            "type": "string"
+          },
+          "privateIpAllocationMethod": {
+            "description": "Private IP address allocation method.",
             "type": "string",
-            "readOnly": true
+            "enum": [
+              "Static",
+              "Dynamic"
+            ],
+            "x-ms-enum": {
+              "name": "IpAllocationMethod",
+              "modelAsString": true
+            }
           }
         }
       },
