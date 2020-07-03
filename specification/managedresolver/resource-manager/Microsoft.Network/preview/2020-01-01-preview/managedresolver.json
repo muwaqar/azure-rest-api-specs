@@ -600,6 +600,276 @@
           }
         }
       },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/managedResolverRulesetLinks/{managedResolverRulesetLinkName}": {
+        "put": {
+          "tags": [
+            "ManagedResolverRulesetLinks"
+          ],
+          "operationId": "ManagedResolverRulesetLinks_CreateOrUpdate",
+          "description": "Creates or updates a ruleset link to managed DNS resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverRulesetLinkNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverRulesetLink"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            },
+            {
+              "$ref": "#/parameters/IfNoneMatchParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The ruleset link to the managed DNS resolver has been created.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverRulesetLink"
+              }
+            },
+            "200": {
+              "description": "The ruleset link to the managed DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverRulesetLink"
+              }
+            },
+            "202": {
+              "description": "The operation to create ruleset link to managed DNS resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PUT managed DNS resolver ruleset link": {
+              "$ref": "./examples/ManagedResolverRulesetLinkPut.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "ManagedResolverRulesetLinks"
+          ],
+          "operationId": "ManagedResolverRulesetLinks_Update",
+          "description": "Updates a ruleset link to managed DNS resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverRulesetLinkNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverRulesetLink"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The ruleset link to the managed DNS resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverRulesetLink"
+              }
+            },
+            "202": {
+              "description": "The operation to update ruleset link to managed DNS resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "PATCH managed DNS resolver ruleset link": {
+              "$ref": "./examples/ManagedResolverRulesetLinkPatch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "ManagedResolverRulesetLinks"
+          ],
+          "operationId": "ManagedResolverRulesetLinks_Delete",
+          "description": "Deletes a ruleset link to managed DNS resolver. WARNING: This operation cannot be undone.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverRulesetLinkNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The ruleset link to the managed DNS resolver has been deleted."
+            },
+            "202": {
+              "description": "The operation to delete ruleset link to managed DNS resolver has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The ruleset link to the managed DNS resolver was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "DELETE managed DNS resolver ruleset link": {
+              "$ref": "./examples/ManagedResolverRulesetLinkDelete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "ManagedResolverRulesetLinks"
+          ],
+          "operationId": "ManagedResolverRulesetLinks_Get",
+          "description": "Gets properties of a ruleset link to managed DNS resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverRulesetLinkNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The ruleset link to the managed DNS resolver was found.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverRulesetLink"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "GET managed DNS resolver ruleset link": {
+              "$ref": "./examples/ManagedResolverRulesetLinkGet.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/managedResolverRulesetLinks": {
+        "get": {
+          "tags": [
+            "ManagedResolverRulesetLinks"
+          ],
+          "operationId": "ManagedResolverRulesetLinks_List",
+          "description": "Lists ruleset links to a specified managed DNS resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ManagedResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ManagedResolverRulesetLinkListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET ruleset links by managed DNS resolver": {
+              "$ref": "./examples/ManagedResolverRulesetLinkList.json"
+            }
+          }
+        }
+      },
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{managedResolverRulesetName}": {
         "put": {
           "tags": [
@@ -1176,10 +1446,6 @@
             "description": "The reference to the virtual network. This cannot be changed after creation.",
             "$ref": "#/definitions/SubResource"
           },
-          "managedResolverRuleset": {
-            "description": "The reference to the managed resolver ruleset.",
-            "$ref": "#/definitions/SubResource"
-          },
           "maxNumberOfEndpoints": {
             "description": "The maximum number of endpoints that can be created for this managed DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
@@ -1297,6 +1563,56 @@
             "type": "array",
             "items": {
               "$ref": "#/definitions/Endpoint"
+            }
+          },
+          "nextLink": {
+            "description": "The continuation token for the next page of results.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ManagedResolverRulesetLinkProperties": {
+        "description": "Represents the properties of a ruleset links to a managed DNS resolver.",
+        "properties": {
+          "managedResolverRuleset": {
+            "description": "The reference to the managed resolver ruleset. This cannot be changed after creation.",
+            "$ref": "#/definitions/SubResource"
+          },
+          "provisioningState": {
+            "description": "The current provisioning state of the managed DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true
+          }
+        }
+      },
+      "ManagedResolverRulesetLink": {
+        "description": "Describes a ruleset links to managed DNS resolver.",
+        "properties": {
+          "etag": {
+            "description": "The ETag of the ruleset link to managed DNS resolver.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of a ruleset links to managed DNS resolver.",
+            "$ref": "#/definitions/ManagedResolverRulesetLinkProperties",
+            "x-ms-client-flatten": true
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ProxyResource"
+          }
+        ]
+      },
+      "ManagedResolverRulesetLinkListResult": {
+        "description": "The response to an enumeration operation on ruleset links to managed DNS resolver.",
+        "properties": {
+          "value": {
+            "description": "Enumeration of the ruleset links to managed DNS resolver.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ManagedResolverRulesetLink"
             }
           },
           "nextLink": {
@@ -1630,6 +1946,14 @@
         "required": true,
         "type": "string",
         "description": "The name of the managed DNS resolver endpoint.",
+        "x-ms-parameter-location": "method"
+      },
+      "ManagedResolverRulesetLinkNameParameter": {
+        "name": "managedResolverRulesetLinkName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the managed ruleset link.",
         "x-ms-parameter-location": "method"
       },
       "ManagedResolverRulesetNameParameter": {
