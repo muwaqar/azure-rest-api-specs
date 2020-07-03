@@ -1525,9 +1525,19 @@
               "$ref": "#/definitions/IpConfiguration"
             }
           },
-          "availabilityZone": {
-            "description": "Availability zone for endpoint provisioning.",
-            "type": "string"
+          "endpointState": {
+            "description": "The status of the endpoint. This is a read-only property and any attempt to set this value will be ignored.",
+            "type": "string",
+            "enum": [
+              "Active",
+              "Recovering",
+              "Inactive"
+            ],
+            "x-ms-enum": {
+              "name": "EndpointState",
+              "modelAsString": true
+            },
+            "readOnly": true
           },
           "provisioningState": {
             "description": "The current provisioning state of the managed DNS resolver endpoint. This is a read-only property and any attempt to set this value will be ignored.",
@@ -1542,6 +1552,13 @@
           "etag": {
             "description": "The ETag of the managed DNS resolver endpoint.",
             "type": "string"
+          },
+          "zones": {
+            "description": "Availability zone for endpoint provisioning.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "properties": {
             "description": "Properties of a managed DNS resolver endpoint.",
