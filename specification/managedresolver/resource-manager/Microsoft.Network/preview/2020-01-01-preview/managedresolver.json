@@ -30,9 +30,9 @@
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}": {
         "put": {
           "tags": [
-            "ManagedResolvers"
+            "Resolvers"
           ],
-          "operationId": "ManagedResolvers_CreateOrUpdate",
+          "operationId": "Resolvers_CreateOrUpdate",
           "description": "Creates or updates a managed DNS resolver. Does not modify virtual network or ruleset associated with the resolver.",
           "parameters": [
             {
@@ -95,9 +95,9 @@
         },
         "patch": {
           "tags": [
-            "ManagedResolvers"
+            "Resolvers"
           ],
-          "operationId": "ManagedResolvers_Update",
+          "operationId": "Resolvers_Update",
           "description": "Updates a managed DNS resolver. Does not modify virtual network or ruleset associated with the resolver.",
           "parameters": [
             {
@@ -151,9 +151,9 @@
         },
         "delete": {
           "tags": [
-            "ManagedResolvers"
+            "Resolvers"
           ],
-          "operationId": "ManagedResolvers_Delete",
+          "operationId": "Resolvers_Delete",
           "description": "Deletes a managed DNS resolver. WARNING: This operation cannot be undone. This operation does not delete or modify the virtual network or ruleset associated with the resolver.",
           "parameters": [
             {
@@ -198,9 +198,9 @@
         },
         "get": {
           "tags": [
-            "ManagedResolvers"
+            "Resolvers"
           ],
-          "operationId": "ManagedResolvers_Get",
+          "operationId": "Resolvers_Get",
           "description": "Gets a managed DNS resolver properties.",
           "parameters": [
             {
@@ -240,9 +240,9 @@
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers": {
         "get": {
           "tags": [
-            "ManagedResolvers"
+            "Resolvers"
           ],
-          "operationId": "ManagedResolvers_ListByResourceGroup",
+          "operationId": "Resolvers_ListByResourceGroup",
           "description": "Lists the managed DNS resolvers within a resource group.",
           "parameters": [
             {
@@ -285,9 +285,9 @@
       "/subscriptions/{subscriptionId}/providers/Microsoft.Network/managedResolvers": {
         "get": {
           "tags": [
-            "ManagedResolvers"
+            "Resolvers"
           ],
-          "operationId": "ManagedResolvers_List",
+          "operationId": "Resolvers_List",
           "description": "Lists the managed DNS resolvers in all resource groups in a subscription.",
           "parameters": [
             {
@@ -603,9 +603,9 @@
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/managedResolverRulesetLinks/{managedResolverRulesetLinkName}": {
         "put": {
           "tags": [
-            "ManagedResolverRulesetLinks"
+            "RulesetLinks"
           ],
-          "operationId": "ManagedResolverRulesetLinks_CreateOrUpdate",
+          "operationId": "RulesetLinks_CreateOrUpdate",
           "description": "Creates or updates a ruleset link to managed DNS resolver.",
           "parameters": [
             {
@@ -671,9 +671,9 @@
         },
         "patch": {
           "tags": [
-            "ManagedResolverRulesetLinks"
+            "RulesetLinks"
           ],
-          "operationId": "ManagedResolverRulesetLinks_Update",
+          "operationId": "RulesetLinks_Update",
           "description": "Updates a ruleset link to managed DNS resolver.",
           "parameters": [
             {
@@ -730,9 +730,9 @@
         },
         "delete": {
           "tags": [
-            "ManagedResolverRulesetLinks"
+            "RulesetLinks"
           ],
-          "operationId": "ManagedResolverRulesetLinks_Delete",
+          "operationId": "RulesetLinks_Delete",
           "description": "Deletes a ruleset link to managed DNS resolver. WARNING: This operation cannot be undone.",
           "parameters": [
             {
@@ -780,9 +780,9 @@
         },
         "get": {
           "tags": [
-            "ManagedResolverRulesetLinks"
+            "RulesetLinks"
           ],
-          "operationId": "ManagedResolverRulesetLinks_Get",
+          "operationId": "RulesetLinks_Get",
           "description": "Gets properties of a ruleset link to managed DNS resolver.",
           "parameters": [
             {
@@ -825,9 +825,9 @@
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/managedResolverRulesetLinks": {
         "get": {
           "tags": [
-            "ManagedResolverRulesetLinks"
+            "RulesetLinks"
           ],
-          "operationId": "ManagedResolverRulesetLinks_List",
+          "operationId": "RulesetLinks_List",
           "description": "Lists ruleset links to a specified managed DNS resolver.",
           "parameters": [
             {
@@ -873,9 +873,9 @@
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{managedResolverRulesetName}": {
         "put": {
           "tags": [
-            "ManagedResolverRulesets"
+            "Rulesets"
           ],
-          "operationId": "ManagedResolverRulesets_CreateOrUpdate",
+          "operationId": "Rulesets_CreateOrUpdate",
           "description": "Creates or updates a managed resolver ruleset. Does not modify rules within the ruleset.",
           "parameters": [
             {
@@ -938,9 +938,9 @@
         },
         "patch": {
           "tags": [
-            "ManagedResolverRulesets"
+            "Rulesets"
           ],
-          "operationId": "ManagedResolverRulesets_Update",
+          "operationId": "Rulesets_Update",
           "description": "Updates a managed resolver ruleset. Does not modify rules within the ruleset.",
           "parameters": [
             {
@@ -994,9 +994,9 @@
         },
         "delete": {
           "tags": [
-            "ManagedResolverRulesets"
+            "Rulesets"
           ],
-          "operationId": "ManagedResolverRulesets_Delete",
+          "operationId": "Rulesets_Delete",
           "description": "Deletes a managed resolver ruleset. WARNING: This operation cannot be undone. All rules within the ruleset will also be deleted.",
           "parameters": [
             {
@@ -1041,9 +1041,9 @@
         },
         "get": {
           "tags": [
-            "ManagedResolverRulesets"
+            "Rulesets"
           ],
-          "operationId": "ManagedResolverRulesets_Get",
+          "operationId": "Rulesets_Get",
           "description": "Gets a managed resolver ruleset properties.",
           "parameters": [
             {
@@ -1083,9 +1083,9 @@
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets": {
         "get": {
           "tags": [
-            "ManagedResolverRulesets"
+            "Rulesets"
           ],
-          "operationId": "ManagedResolverRulesets_ListByResourceGroup",
+          "operationId": "Rulesets_ListByResourceGroup",
           "description": "Lists the managed resolver rulesets within a resource group.",
           "parameters": [
             {
@@ -1128,9 +1128,9 @@
       "/subscriptions/{subscriptionId}/providers/Microsoft.Network/managedResolverRulesets": {
         "get": {
           "tags": [
-            "ManagedResolverRulesets"
+            "Rulesets"
           ],
-          "operationId": "ManagedResolverRulesets_List",
+          "operationId": "Rulesets_List",
           "description": "Lists the managed resolver rulesets in all resource groups in a subscription.",
           "parameters": [
             {
@@ -1170,9 +1170,9 @@
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{managedResolverRulesetName}/managedResolverRules/{managedResolverRuleName}": {
         "put": {
           "tags": [
-            "ManagedResolverRules"
+            "Rules"
           ],
-          "operationId": "ManagedResolverRules_CreateOrUpdate",
+          "operationId": "Rules_CreateOrUpdate",
           "description": "Creates or updates a managed resolver rule in the specified ruleset.",
           "parameters": [
             {
@@ -1238,9 +1238,9 @@
         },
         "patch": {
           "tags": [
-            "ManagedResolverRules"
+            "Rules"
           ],
-          "operationId": "ManagedResolverRules_Update",
+          "operationId": "Rules_Update",
           "description": "Updates a managed resolver rule in the specified ruleset.",
           "parameters": [
             {
@@ -1297,9 +1297,9 @@
         },
         "delete": {
           "tags": [
-            "ManagedResolverRules"
+            "Rules"
           ],
-          "operationId": "ManagedResolverRules_Delete",
+          "operationId": "Rules_Delete",
           "description": "Deletes a managed resolver rule in the specified rulset. WARNING: This operation cannot be undone.",
           "parameters": [
             {
@@ -1347,9 +1347,9 @@
         },
         "get": {
           "tags": [
-            "ManagedResolverRules"
+            "Rules"
           ],
-          "operationId": "ManagedResolverRules_Get",
+          "operationId": "Rules_Get",
           "description": "Gets a managed resolver rule properties in the specified ruleset.",
           "parameters": [
             {
@@ -1392,9 +1392,9 @@
       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{managedResolverRulesetName}/managedResolverRules": {
         "get": {
           "tags": [
-            "ManagedResolverRules"
+            "Rules"
           ],
-          "operationId": "ManagedResolverRules_List",
+          "operationId": "Rules_List",
           "description": "Lists the managed resolver rules in the specified ruleset.",
           "parameters": [
             {
