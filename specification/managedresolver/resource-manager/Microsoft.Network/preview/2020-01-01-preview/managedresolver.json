@@ -600,7 +600,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/managedResolverRulesetLinks/{rulesetLinkName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/rulesetLinks/{rulesetLinkName}": {
         "put": {
           "tags": [
             "RulesetLinks"
@@ -822,7 +822,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/managedResolverRulesetLinks": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/rulesetLinks": {
         "get": {
           "tags": [
             "RulesetLinks"
@@ -1167,7 +1167,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{rulesetName}/managedResolverRules/{ruleName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{rulesetName}/rules/{ruleName}": {
         "put": {
           "tags": [
             "Rules"
@@ -1389,7 +1389,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{rulesetName}/managedResolverRules": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{rulesetName}/rules": {
         "get": {
           "tags": [
             "Rules"
