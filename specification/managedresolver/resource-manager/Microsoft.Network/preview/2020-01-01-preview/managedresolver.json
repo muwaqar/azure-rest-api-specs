@@ -33,7 +33,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_CreateOrUpdate",
-          "description": "Creates or updates a managed DNS resolver. Does not modify virtual network or ruleset associated with the resolver.",
+          "description": "Creates or updates a resolver. Does not modify virtual network or ruleset associated with the resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -65,19 +65,19 @@
           ],
           "responses": {
             "201": {
-              "description": "The managed DNS resolver has been created.",
+              "description": "The resolver has been created.",
               "schema": {
                 "$ref": "#/definitions/Resolver"
               }
             },
             "200": {
-              "description": "The managed DNS resolver has been updated.",
+              "description": "The resolver has been updated.",
               "schema": {
                 "$ref": "#/definitions/Resolver"
               }
             },
             "202": {
-              "description": "The managed DNS resolver upsert operation has been accepted and will complete asynchronously."
+              "description": "The resolver upsert operation has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -88,7 +88,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PUT managed DNS resolver": {
+            "PUT resolver": {
               "$ref": "./examples/Resolver_Put.json"
             }
           }
@@ -98,7 +98,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_Update",
-          "description": "Updates a managed DNS resolver. Does not modify virtual network or ruleset associated with the resolver.",
+          "description": "Updates a resolver. Does not modify virtual network or ruleset associated with the resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -127,13 +127,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed DNS resolver has been updated.",
+              "description": "The resolver has been updated.",
               "schema": {
                 "$ref": "#/definitions/Resolver"
               }
             },
             "202": {
-              "description": "The managed DNS resolver update operation has been accepted and will complete asynchronously."
+              "description": "The resolver update operation has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -144,7 +144,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PATCH managed DNS resolver": {
+            "PATCH resolver": {
               "$ref": "./examples/Resolver_Patch.json"
             }
           }
@@ -154,7 +154,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_Delete",
-          "description": "Deletes a managed DNS resolver. WARNING: This operation cannot be undone. This operation does not delete or modify the virtual network or ruleset associated with the resolver.",
+          "description": "Deletes a resolver. WARNING: This operation cannot be undone. This operation does not delete or modify the virtual network or ruleset associated with the resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -174,13 +174,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed DNS resolver has been deleted."
+              "description": "The resolver has been deleted."
             },
             "202": {
-              "description": "The managed DNS resolver delete operation has been accepted and will complete asynchronously."
+              "description": "The resolver delete operation has been accepted and will complete asynchronously."
             },
             "204": {
-              "description": "The managed DNS resolver was not found."
+              "description": "The resolver was not found."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -191,7 +191,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "DELETE managed DNS resolver": {
+            "DELETE resolver": {
               "$ref": "./examples/Resolver_Delete.json"
             }
           }
@@ -201,7 +201,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_Get",
-          "description": "Gets a managed DNS resolver properties.",
+          "description": "Gets a resolver properties.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -218,7 +218,7 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed DNS resolver was found.",
+              "description": "The resolver was found.",
               "schema": {
                 "$ref": "#/definitions/Resolver"
               }
@@ -231,7 +231,7 @@
             }
           },
           "x-ms-examples": {
-            "GET managed DNS resolver": {
+            "GET resolver": {
               "$ref": "./examples/Resolver_Get.json"
             }
           }
@@ -243,7 +243,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_ListByResourceGroup",
-          "description": "Lists the managed DNS resolvers within a resource group.",
+          "description": "Lists the resolvers within a resource group.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -276,7 +276,7 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET managed DNS resolvers by Resource Group": {
+            "GET resolvers by Resource Group": {
               "$ref": "./examples/Resolver_ListInResourceGroup.json"
             }
           }
@@ -288,7 +288,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_List",
-          "description": "Lists the managed DNS resolvers in all resource groups in a subscription.",
+          "description": "Lists the resolvers in all resource groups in a subscription.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -324,7 +324,7 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET managed DNS resolvers by subscription": {
+            "GET resolvers by subscription": {
               "$ref": "./examples/Resolver_ListInSubscription.json"
             }
           }
@@ -336,7 +336,7 @@
             "Endpoints"
           ],
           "operationId": "Endpoints_CreateOrUpdate",
-          "description": "Creates or updates a managed DNS resolver endpoint.",
+          "description": "Creates or updates a resolver endpoint.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -371,19 +371,19 @@
           ],
           "responses": {
             "201": {
-              "description": "The managed DNS resolver endpoint has been created.",
+              "description": "The resolver endpoint has been created.",
               "schema": {
                 "$ref": "#/definitions/Endpoint"
               }
             },
             "200": {
-              "description": "The managed DNS resolver endpoint has been updated.",
+              "description": "The resolver endpoint has been updated.",
               "schema": {
                 "$ref": "#/definitions/Endpoint"
               }
             },
             "202": {
-              "description": "The managed DNS resolver endpoint upsert operation has been accepted and will complete asynchronously."
+              "description": "The resolver endpoint upsert operation has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -394,7 +394,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PUT managed DNS resolver endpoint": {
+            "PUT resolver endpoint": {
               "$ref": "./examples/Endpoint_Put.json"
             }
           }
@@ -404,7 +404,7 @@
             "Endpoints"
           ],
           "operationId": "Endpoints_Update",
-          "description": "Updates a managed DNS resolver endpoint.",
+          "description": "Updates a resolver endpoint.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -436,13 +436,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed DNS resolver endpoint has been updated.",
+              "description": "The resolver endpoint has been updated.",
               "schema": {
                 "$ref": "#/definitions/Endpoint"
               }
             },
             "202": {
-              "description": "The managed DNS resolver endpoint update operation has been accepted and will complete asynchronously."
+              "description": "The resolver endpoint update operation has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -453,7 +453,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PATCH managed DNS resolver endpoint": {
+            "PATCH resolver endpoint": {
               "$ref": "./examples/Endpoint_Patch.json"
             }
           }
@@ -463,7 +463,7 @@
             "Endpoints"
           ],
           "operationId": "Endpoints_Delete",
-          "description": "Deletes a managed DNS resolver endpoint. WARNING: This operation cannot be undone.",
+          "description": "Deletes a resolver endpoint. WARNING: This operation cannot be undone.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -486,13 +486,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed DNS resolver endpoint has been deleted."
+              "description": "The resolver endpoint has been deleted."
             },
             "202": {
-              "description": "The managed DNS resolver endpoint delete operation has been accepted and will complete asynchronously."
+              "description": "The resolver endpoint delete operation has been accepted and will complete asynchronously."
             },
             "204": {
-              "description": "The managed DNS resolver endpoint was not found."
+              "description": "The resolver endpoint was not found."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -503,7 +503,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "DELETE managed DNS resolver endpoint": {
+            "DELETE resolver endpoint": {
               "$ref": "./examples/Endpoint_Delete.json"
             }
           }
@@ -513,7 +513,7 @@
             "Endpoints"
           ],
           "operationId": "Endpoints_Get",
-          "description": "Gets a managed DNS resolver endpoint properties.",
+          "description": "Gets a resolver endpoint properties.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -533,7 +533,7 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed DNS resolver endpoint was found.",
+              "description": "The resolver endpoint was found.",
               "schema": {
                 "$ref": "#/definitions/Endpoint"
               }
@@ -546,7 +546,7 @@
             }
           },
           "x-ms-examples": {
-            "GET managed DNS resolver endpoint": {
+            "GET resolver endpoint": {
               "$ref": "./examples/Endpoint_Get.json"
             }
           }
@@ -558,7 +558,7 @@
             "Endpoints"
           ],
           "operationId": "Endpoints_List",
-          "description": "Lists the endpoints for the specified managed DNS resolver.",
+          "description": "Lists the endpoints for the specified resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -594,7 +594,7 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET endpoints by managed DNS resolver": {
+            "GET endpoints by resolver": {
               "$ref": "./examples/Endpoint_List.json"
             }
           }
@@ -606,7 +606,7 @@
             "RulesetLinks"
           ],
           "operationId": "RulesetLinks_CreateOrUpdate",
-          "description": "Creates or updates a ruleset link to managed DNS resolver.",
+          "description": "Creates or updates a ruleset link to resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -641,19 +641,19 @@
           ],
           "responses": {
             "201": {
-              "description": "The ruleset link to the managed DNS resolver has been created.",
+              "description": "The ruleset link to the resolver has been created.",
               "schema": {
                 "$ref": "#/definitions/RulesetLink"
               }
             },
             "200": {
-              "description": "The ruleset link to the managed DNS resolver has been updated.",
+              "description": "The ruleset link to the resolver has been updated.",
               "schema": {
                 "$ref": "#/definitions/RulesetLink"
               }
             },
             "202": {
-              "description": "The operation to create ruleset link to managed DNS resolver has been accepted and will complete asynchronously."
+              "description": "The operation to create ruleset link to resolver has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -664,7 +664,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PUT managed DNS resolver ruleset link": {
+            "PUT ruleset link": {
               "$ref": "./examples/RulesetLink_Put.json"
             }
           }
@@ -674,7 +674,7 @@
             "RulesetLinks"
           ],
           "operationId": "RulesetLinks_Update",
-          "description": "Updates a ruleset link to managed DNS resolver.",
+          "description": "Updates a ruleset link to resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -706,13 +706,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The ruleset link to the managed DNS resolver has been updated.",
+              "description": "The ruleset link to the resolver has been updated.",
               "schema": {
                 "$ref": "#/definitions/RulesetLink"
               }
             },
             "202": {
-              "description": "The operation to update ruleset link to managed DNS resolver has been accepted and will complete asynchronously."
+              "description": "The operation to update ruleset link to resolver has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -723,7 +723,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PATCH managed DNS resolver ruleset link": {
+            "PATCH ruleset link": {
               "$ref": "./examples/RulesetLink_Patch.json"
             }
           }
@@ -733,7 +733,7 @@
             "RulesetLinks"
           ],
           "operationId": "RulesetLinks_Delete",
-          "description": "Deletes a ruleset link to managed DNS resolver. WARNING: This operation cannot be undone.",
+          "description": "Deletes a ruleset link to resolver. WARNING: This operation cannot be undone.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -756,13 +756,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The ruleset link to the managed DNS resolver has been deleted."
+              "description": "The ruleset link to the resolver has been deleted."
             },
             "202": {
-              "description": "The operation to delete ruleset link to managed DNS resolver has been accepted and will complete asynchronously."
+              "description": "The operation to delete ruleset link to resolver has been accepted and will complete asynchronously."
             },
             "204": {
-              "description": "The ruleset link to the managed DNS resolver was not found."
+              "description": "The ruleset link to the resolver was not found."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -773,7 +773,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "DELETE managed DNS resolver ruleset link": {
+            "DELETE ruleset link": {
               "$ref": "./examples/RulesetLink_Delete.json"
             }
           }
@@ -783,7 +783,7 @@
             "RulesetLinks"
           ],
           "operationId": "RulesetLinks_Get",
-          "description": "Gets properties of a ruleset link to managed DNS resolver.",
+          "description": "Gets properties of a ruleset link to resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -803,7 +803,7 @@
           ],
           "responses": {
             "200": {
-              "description": "The ruleset link to the managed DNS resolver was found.",
+              "description": "The ruleset link to the resolver was found.",
               "schema": {
                 "$ref": "#/definitions/RulesetLink"
               }
@@ -816,7 +816,7 @@
             }
           },
           "x-ms-examples": {
-            "GET managed DNS resolver ruleset link": {
+            "GET ruleset link": {
               "$ref": "./examples/RulesetLink_Get.json"
             }
           }
@@ -828,7 +828,7 @@
             "RulesetLinks"
           ],
           "operationId": "RulesetLinks_List",
-          "description": "Lists ruleset links to a specified managed DNS resolver.",
+          "description": "Lists ruleset links to a specified resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -864,7 +864,7 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET ruleset links by managed DNS resolver": {
+            "GET ruleset links by resolver": {
               "$ref": "./examples/RulesetLink_List.json"
             }
           }
@@ -876,7 +876,7 @@
             "Rulesets"
           ],
           "operationId": "Rulesets_CreateOrUpdate",
-          "description": "Creates or updates a managed resolver ruleset. Does not modify rules within the ruleset.",
+          "description": "Creates or updates a ruleset. Does not modify rules within the ruleset.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -908,19 +908,19 @@
           ],
           "responses": {
             "201": {
-              "description": "The managed resolver ruleset has been created.",
+              "description": "The ruleset has been created.",
               "schema": {
                 "$ref": "#/definitions/Ruleset"
               }
             },
             "200": {
-              "description": "The managed resolver ruleset has been updated.",
+              "description": "The ruleset has been updated.",
               "schema": {
                 "$ref": "#/definitions/Ruleset"
               }
             },
             "202": {
-              "description": "The managed resolver ruleset upsert operation has been accepted and will complete asynchronously."
+              "description": "The ruleset upsert operation has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -931,7 +931,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PUT managed resolver ruleset": {
+            "PUT ruleset": {
               "$ref": "./examples/Ruleset_Put.json"
             }
           }
@@ -941,7 +941,7 @@
             "Rulesets"
           ],
           "operationId": "Rulesets_Update",
-          "description": "Updates a managed resolver ruleset. Does not modify rules within the ruleset.",
+          "description": "Updates a ruleset. Does not modify rules within the ruleset.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -970,13 +970,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed resolver ruleset has been updated.",
+              "description": "The ruleset has been updated.",
               "schema": {
                 "$ref": "#/definitions/Ruleset"
               }
             },
             "202": {
-              "description": "The managed resolver ruleset update operation has been accepted and will complete asynchronously."
+              "description": "The ruleset update operation has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -987,7 +987,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PATCH managed resolver ruleset": {
+            "PATCH ruleset": {
               "$ref": "./examples/Ruleset_Patch.json"
             }
           }
@@ -997,7 +997,7 @@
             "Rulesets"
           ],
           "operationId": "Rulesets_Delete",
-          "description": "Deletes a managed resolver ruleset. WARNING: This operation cannot be undone. All rules within the ruleset will also be deleted.",
+          "description": "Deletes a ruleset. WARNING: This operation cannot be undone. All rules within the ruleset will also be deleted.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1017,13 +1017,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed resolver ruleset has been deleted."
+              "description": "The ruleset has been deleted."
             },
             "202": {
-              "description": "The managed resolver ruleset delete operation has been accepted and will complete asynchronously."
+              "description": "The ruleset delete operation has been accepted and will complete asynchronously."
             },
             "204": {
-              "description": "The managed resolver ruleset was not found."
+              "description": "The ruleset was not found."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -1034,7 +1034,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "DELETE managed resolver ruleset": {
+            "DELETE ruleset": {
               "$ref": "./examples/Ruleset_Delete.json"
             }
           }
@@ -1044,7 +1044,7 @@
             "Rulesets"
           ],
           "operationId": "Rulesets_Get",
-          "description": "Gets a managed resolver ruleset properties.",
+          "description": "Gets a ruleset properties.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1061,7 +1061,7 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed resolver ruleset was found.",
+              "description": "The ruleset was found.",
               "schema": {
                 "$ref": "#/definitions/Ruleset"
               }
@@ -1074,7 +1074,7 @@
             }
           },
           "x-ms-examples": {
-            "GET managed resolver ruleset": {
+            "GET ruleset": {
               "$ref": "./examples/Ruleset_Get.json"
             }
           }
@@ -1086,7 +1086,7 @@
             "Rulesets"
           ],
           "operationId": "Rulesets_ListByResourceGroup",
-          "description": "Lists the managed resolver rulesets within a resource group.",
+          "description": "Lists the rulesets within a resource group.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1119,7 +1119,7 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET managed resolver ruleset by resource group": {
+            "GET ruleset by resource group": {
               "$ref": "./examples/Ruleset_ListInResourceGroup.json"
             }
           }
@@ -1131,7 +1131,7 @@
             "Rulesets"
           ],
           "operationId": "Rulesets_List",
-          "description": "Lists the managed resolver rulesets in all resource groups in a subscription.",
+          "description": "Lists the rulesets in all resource groups in a subscription.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1161,7 +1161,7 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET managed resolver ruleset by subscription": {
+            "GET ruleset by subscription": {
               "$ref": "./examples/Ruleset_ListInSubscription.json"
             }
           }
@@ -1173,7 +1173,7 @@
             "Rules"
           ],
           "operationId": "Rules_CreateOrUpdate",
-          "description": "Creates or updates a managed resolver rule in the specified ruleset.",
+          "description": "Creates or updates a rule in the specified ruleset.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1208,19 +1208,19 @@
           ],
           "responses": {
             "201": {
-              "description": "The managed resolver rule has been created.",
+              "description": "The rule has been created.",
               "schema": {
                 "$ref": "#/definitions/Rule"
               }
             },
             "200": {
-              "description": "The managed resolver rule has been updated.",
+              "description": "The rule has been updated.",
               "schema": {
                 "$ref": "#/definitions/Rule"
               }
             },
             "202": {
-              "description": "The operation to upsert managed resolver rule has been accepted and will complete asynchronously."
+              "description": "The operation to upsert rule has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -1231,7 +1231,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PUT managed resolver rule": {
+            "PUT rule": {
               "$ref": "./examples/Rule_Put.json"
             }
           }
@@ -1241,7 +1241,7 @@
             "Rules"
           ],
           "operationId": "Rules_Update",
-          "description": "Updates a managed resolver rule in the specified ruleset.",
+          "description": "Updates a rule in the specified ruleset.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1273,13 +1273,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed resolver rule has been updated.",
+              "description": "The rule has been updated.",
               "schema": {
                 "$ref": "#/definitions/Rule"
               }
             },
             "202": {
-              "description": "The operation to add managed resolver rule for Managed DNS resolver has been accepted and will complete asynchronously."
+              "description": "The operation to add rule for resolver has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -1290,7 +1290,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PATCH managed resolver rule": {
+            "PATCH rule": {
               "$ref": "./examples/Rule_Patch.json"
             }
           }
@@ -1300,7 +1300,7 @@
             "Rules"
           ],
           "operationId": "Rules_Delete",
-          "description": "Deletes a managed resolver rule in the specified rulset. WARNING: This operation cannot be undone.",
+          "description": "Deletes a rule in the specified rulset. WARNING: This operation cannot be undone.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1323,13 +1323,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed resolver rule has been deleted."
+              "description": "The rule has been deleted."
             },
             "202": {
-              "description": "The operation to delete managed resolver rule has been accepted and will complete asynchronously."
+              "description": "The operation to delete rule has been accepted and will complete asynchronously."
             },
             "204": {
-              "description": "The managed resolver rule was not found."
+              "description": "The rule was not found."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -1340,7 +1340,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "DELETE managed resolver rule": {
+            "DELETE rule": {
               "$ref": "./examples/Rule_Delete.json"
             }
           }
@@ -1350,7 +1350,7 @@
             "Rules"
           ],
           "operationId": "Rules_Get",
-          "description": "Gets a managed resolver rule properties in the specified ruleset.",
+          "description": "Gets a rule properties in the specified ruleset.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1370,7 +1370,7 @@
           ],
           "responses": {
             "200": {
-              "description": "The managed resolver rule was found.",
+              "description": "The rule was found.",
               "schema": {
                 "$ref": "#/definitions/Rule"
               }
@@ -1383,7 +1383,7 @@
             }
           },
           "x-ms-examples": {
-            "GET managed resolver rule": {
+            "GET rule": {
               "$ref": "./examples/Rule_Get.json"
             }
           }
@@ -1395,7 +1395,7 @@
             "Rules"
           ],
           "operationId": "Rules_List",
-          "description": "Lists the managed resolver rules in the specified ruleset.",
+          "description": "Lists the rules in the specified ruleset.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1431,7 +1431,7 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET managed resolver rules by ruleset": {
+            "GET rules by ruleset": {
               "$ref": "./examples/Rule_List.json"
             }
           }
@@ -1488,26 +1488,26 @@
     },
     "definitions": {
       "ResolverProperties": {
-        "description": "Represents the properties of a managed DNS resolver.",
+        "description": "Represents the properties of a resolver.",
         "properties": {
           "virtualNetwork": {
             "description": "The reference to the virtual network. This cannot be changed after creation.",
             "$ref": "#/definitions/SubResource"
           },
           "maxNumberOfEndpoints": {
-            "description": "The maximum number of endpoints that can be created for this managed DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The maximum number of endpoints that can be created for this resolver. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
           "numberOfEndpoints": {
-            "description": "The current number of endpoints for this managed DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current number of endpoints for this resolver. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
           "managedResolverState": {
-            "description": "The status of the managed DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The status of the resolver. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "string",
             "enum": [
               "InboundOnly",
@@ -1521,21 +1521,21 @@
             "readOnly": true
           },
           "provisioningState": {
-            "description": "The current provisioning state of the managed DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current provisioning state of the resolver. This is a read-only property and any attempt to set this value will be ignored.",
             "$ref": "#/definitions/ProvisioningState",
             "readOnly": true
           }
         }
       },
       "Resolver": {
-        "description": "Describes a managed DNS resolver.",
+        "description": "Describes a resolver.",
         "properties": {
           "etag": {
-            "description": "The ETag of the managed DNS resolver.",
+            "description": "The ETag of the resolver.",
             "type": "string"
           },
           "properties": {
-            "description": "Properties of a managed DNS resolver.",
+            "description": "Properties of a resolver.",
             "$ref": "#/definitions/ResolverProperties",
             "x-ms-client-flatten": true
           }
@@ -1547,10 +1547,10 @@
         ]
       },
       "ResolverListResult": {
-        "description": "The response to an enumeration operation on managed DNS resolvers.",
+        "description": "The response to an enumeration operation on resolvers.",
         "properties": {
           "value": {
-            "description": "Enumeration of the managed DNS resolvers.",
+            "description": "Enumeration of the resolvers.",
             "type": "array",
             "items": {
               "$ref": "#/definitions/Resolver"
@@ -1564,7 +1564,7 @@
         }
       },
       "EndpointProperties": {
-        "description": "Represents the properties of a managed DNS resolver endpoint.",
+        "description": "Represents the properties of a resolver endpoint.",
         "properties": {
           "subnet": {
             "description": "The reference to the subnet used for IP configurations.",
@@ -1592,17 +1592,17 @@
             "readOnly": true
           },
           "provisioningState": {
-            "description": "The current provisioning state of the managed DNS resolver endpoint. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current provisioning state of the resolver endpoint. This is a read-only property and any attempt to set this value will be ignored.",
             "$ref": "#/definitions/ProvisioningState",
             "readOnly": true
           }
         }
       },
       "Endpoint": {
-        "description": "Describes a managed DNS resolver endpoint.",
+        "description": "Describes a resolver endpoint.",
         "properties": {
           "etag": {
-            "description": "The ETag of the managed DNS resolver endpoint.",
+            "description": "The ETag of the resolver endpoint.",
             "type": "string"
           },
           "zones": {
@@ -1613,7 +1613,7 @@
             }
           },
           "properties": {
-            "description": "Properties of a managed DNS resolver endpoint.",
+            "description": "Properties of a resolver endpoint.",
             "$ref": "#/definitions/EndpointProperties",
             "x-ms-client-flatten": true
           }
@@ -1625,10 +1625,10 @@
         ]
       },
       "EndpointListResult": {
-        "description": "The response to an enumeration operation on managed DNS resolver endpoints.",
+        "description": "The response to an enumeration operation on resolver endpoints.",
         "properties": {
           "value": {
-            "description": "Enumeration of the managed DNS resolver endpoints.",
+            "description": "Enumeration of the resolver endpoints.",
             "type": "array",
             "items": {
               "$ref": "#/definitions/Endpoint"
@@ -1642,10 +1642,10 @@
         }
       },
       "RulesetLinkProperties": {
-        "description": "Represents the properties of a ruleset link to a managed DNS resolver.",
+        "description": "Represents the properties of a ruleset link to a resolver.",
         "properties": {
           "managedResolverRuleset": {
-            "description": "The reference to the managed resolver ruleset. This cannot be changed after creation.",
+            "description": "The reference to the ruleset. This cannot be changed after creation.",
             "$ref": "#/definitions/SubResource"
           },
           "provisioningState": {
@@ -1656,14 +1656,14 @@
         }
       },
       "RulesetLink": {
-        "description": "Describes a ruleset link to managed DNS resolver.",
+        "description": "Describes a ruleset link to resolver.",
         "properties": {
           "etag": {
-            "description": "The ETag of the ruleset link to managed DNS resolver.",
+            "description": "The ETag of the ruleset link to resolver.",
             "type": "string"
           },
           "properties": {
-            "description": "Properties of a ruleset link to managed DNS resolver.",
+            "description": "Properties of a ruleset link to resolver.",
             "$ref": "#/definitions/RulesetLinkProperties",
             "x-ms-client-flatten": true
           }
@@ -1675,10 +1675,10 @@
         ]
       },
       "RulesetLinkListResult": {
-        "description": "The response to an enumeration operation on ruleset links to managed DNS resolver.",
+        "description": "The response to an enumeration operation on ruleset links to resolver.",
         "properties": {
           "value": {
-            "description": "Enumeration of the ruleset links to managed DNS resolver.",
+            "description": "Enumeration of the ruleset links to resolver.",
             "type": "array",
             "items": {
               "$ref": "#/definitions/RulesetLink"
@@ -1692,28 +1692,28 @@
         }
       },
       "RulesetProperties": {
-        "description": "Represents the properties of a managed resolver ruleset.",
+        "description": "Represents the properties of a ruleset.",
         "properties": {
           "maxNumberOfManagedResolverRules": {
-            "description": "The maximum number of managed resolver rules that can be created in this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The maximum number of rules that can be created in this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
           "numberOfManagedResolverRules": {
-            "description": "The current number of managed resolver rules in this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current number of rules in this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
           "maxNumberOfManagedResolverLinks": {
-            "description": "The maximum number of managed DNS resolvers that can be linked to this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The maximum number of resolvers that can be linked to this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
           "numberOfManagedResolverLinks": {
-            "description": "The current number of managed DNS resolvers that are linked to this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current number of resolvers that are linked to this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
@@ -1726,14 +1726,14 @@
         }
       },
       "Ruleset": {
-        "description": "Describes a managed resolver ruleset.",
+        "description": "Describes a ruleset.",
         "properties": {
           "etag": {
-            "description": "The ETag of the managed resolver ruleset.",
+            "description": "The ETag of the ruleset.",
             "type": "string"
           },
           "properties": {
-            "description": "Properties of a managed resolver ruleset.",
+            "description": "Properties of a ruleset.",
             "$ref": "#/definitions/RulesetProperties",
             "x-ms-client-flatten": true
           }
@@ -1745,10 +1745,10 @@
         ]
       },
       "RulesetListResult": {
-        "description": "The response to an enumeration operation on managed resolver rulesets.",
+        "description": "The response to an enumeration operation on rulesets.",
         "properties": {
           "value": {
-            "description": "Enumeration of the managed resolver rulesets.",
+            "description": "Enumeration of the rulesets.",
             "type": "array",
             "items": {
               "$ref": "#/definitions/Ruleset"
@@ -1762,10 +1762,10 @@
         }
       },
       "RuleProperties": {
-        "description": "Represents the properties of a managed resolver rule within the ruleset.",
+        "description": "Represents the properties of a rule within the ruleset.",
         "properties": {
           "action": {
-            "description": "The action to take as part of rule execution. Use 'Forward' to route the DNS queries for the domain to servers specified as part of `targetDnsServers` property. Use 'Default' to render default behavior (skipping managed resolver rule execution) for the specified domain. This value cannot be changed after the rule has been created.",
+            "description": "The action to take as part of rule execution. Use 'Forward' to route the DNS queries for the domain to servers specified as part of `targetDnsServers` property. Use 'Default' to render default behavior (skipping rule execution) for the specified domain. This value cannot be changed after the rule has been created.",
             "type": "string",
             "enum": [
               "Forward",
@@ -1777,32 +1777,32 @@
             }
           },
           "targetDnsServers": {
-            "description": "Enumeration of DNS servers to forward the DNS query to. This property is only applicable when the managed resolver rule `type` is set to 'Forward'.",
+            "description": "Enumeration of DNS servers to forward the DNS query to. This property is only applicable when the rule `type` is set to 'Forward'.",
             "type": "array",
             "items": {
               "$ref": "#/definitions/TargetDnsServer"
             }
           },
           "disabled": {
-            "description": "Is the managed resolver rule disabled? Allows users to disable a specific rule without deleting it.",
+            "description": "Is the rule disabled? Allows users to disable a specific rule without deleting it.",
             "type": "boolean"
           },
           "provisioningState": {
-            "description": "The current provisioning state of the managed resolver rule. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current provisioning state of the rule. This is a read-only property and any attempt to set this value will be ignored.",
             "$ref": "#/definitions/ProvisioningState",
             "readOnly": true
           }
         }
       },
       "Rule": {
-        "description": "Describes a managed resolver rule within a ruleset.",
+        "description": "Describes a rule within a ruleset.",
         "properties": {
           "etag": {
-            "description": "The ETag of the managed resolver rule.",
+            "description": "The ETag of the rule.",
             "type": "string"
           },
           "properties": {
-            "description": "Properties of a managed resolver rule within the ruleset.",
+            "description": "Properties of a rule within the ruleset.",
             "$ref": "#/definitions/RuleProperties",
             "x-ms-client-flatten": true
           }
@@ -1814,10 +1814,10 @@
         ]
       },
       "RuleListResult": {
-        "description": "The response to an enumeration operation on managed resolver rules within a ruleset.",
+        "description": "The response to an enumeration operation on rules within a ruleset.",
         "properties": {
           "value": {
-            "description": "Enumeration of the managed resolver rules within a ruleset.",
+            "description": "Enumeration of the rules within a ruleset.",
             "type": "array",
             "items": {
               "$ref": "#/definitions/Rule"
@@ -1881,7 +1881,7 @@
         }
       },
       "IpConfiguration": {
-        "description": "Managed DNS resolver endpoint IP configuration",
+        "description": "resolver endpoint IP configuration",
         "properties": {
           "privateIpAddress": {
             "description": "Private IP address for the IP configuration.",
@@ -2059,7 +2059,7 @@
         "in": "path",
         "required": true,
         "type": "string",
-        "description": "The name of the managed DNS resolver.",
+        "description": "The name of the resolver.",
         "x-ms-parameter-location": "method"
       },
       "EndpointNameParameter": {
@@ -2067,7 +2067,7 @@
         "in": "path",
         "required": true,
         "type": "string",
-        "description": "The name of the managed DNS resolver endpoint.",
+        "description": "The name of the resolver endpoint.",
         "x-ms-parameter-location": "method"
       },
       "RulesetLinkNameParameter": {
@@ -2075,7 +2075,7 @@
         "in": "path",
         "required": true,
         "type": "string",
-        "description": "The name of the managed ruleset link.",
+        "description": "The name of the ruleset link to resolver.",
         "x-ms-parameter-location": "method"
       },
       "RulesetNameParameter": {
@@ -2083,7 +2083,7 @@
         "in": "path",
         "required": true,
         "type": "string",
-        "description": "The name of the managed resolver ruleset.",
+        "description": "The name of the ruleset.",
         "x-ms-parameter-location": "method"
       },
       "RuleNameParameter": {
@@ -2091,7 +2091,7 @@
         "in": "path",
         "required": true,
         "type": "string",
-        "description": "The name of the managed resolver rule.",
+        "description": "The name of the rule.",
         "x-ms-parameter-location": "method"
       },
       "TopParameter": {
