@@ -27,7 +27,7 @@
       }
     },
     "paths": {
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}": {
         "put": {
           "tags": [
             "Resolvers"
@@ -330,7 +330,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/endpoints/{endpointName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/endpoints/{endpointName}": {
         "put": {
           "tags": [
             "Endpoints"
@@ -552,7 +552,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/endpoints": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/endpoints": {
         "get": {
           "tags": [
             "Endpoints"
@@ -600,7 +600,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/managedResolverRulesetLinks/{managedResolverRulesetLinkName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/managedResolverRulesetLinks/{rulesetLinkName}": {
         "put": {
           "tags": [
             "RulesetLinks"
@@ -822,7 +822,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}/managedResolverRulesetLinks": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/managedResolverRulesetLinks": {
         "get": {
           "tags": [
             "RulesetLinks"
@@ -870,7 +870,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{managedResolverRulesetName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{rulesetName}": {
         "put": {
           "tags": [
             "Rulesets"
@@ -1167,7 +1167,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{managedResolverRulesetName}/managedResolverRules/{managedResolverRuleName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{rulesetName}/managedResolverRules/{ruleName}": {
         "put": {
           "tags": [
             "Rules"
@@ -1389,7 +1389,7 @@
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{managedResolverRulesetName}/managedResolverRules": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{rulesetName}/managedResolverRules": {
         "get": {
           "tags": [
             "Rules"
@@ -1838,7 +1838,7 @@
           "id": {
             "type": "string",
             "readOnly": true,
-            "description": "Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{managedResolverName}'."
+            "description": "Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}'."
           },
           "name": {
             "type": "string",
@@ -1957,7 +1957,7 @@
         "x-ms-parameter-location": "method"
       },
       "ResolverNameParameter": {
-        "name": "managedResolverName",
+        "name": "resolverName",
         "in": "path",
         "required": true,
         "type": "string",
@@ -1973,7 +1973,7 @@
         "x-ms-parameter-location": "method"
       },
       "RulesetLinkNameParameter": {
-        "name": "managedResolverRulesetLinkName",
+        "name": "rulesetLinkName",
         "in": "path",
         "required": true,
         "type": "string",
@@ -1981,7 +1981,7 @@
         "x-ms-parameter-location": "method"
       },
       "RulesetNameParameter": {
-        "name": "managedResolverRulesetName",
+        "name": "rulesetName",
         "in": "path",
         "required": true,
         "type": "string",
@@ -1989,7 +1989,7 @@
         "x-ms-parameter-location": "method"
       },
       "RuleNameParameter": {
-        "name": "managedResolverRuleName",
+        "name": "ruleName",
         "in": "path",
         "required": true,
         "type": "string",
