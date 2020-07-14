@@ -1219,9 +1219,6 @@
                 "$ref": "#/definitions/Rule"
               }
             },
-            "202": {
-              "description": "The operation to upsert rule has been accepted and will complete asynchronously."
-            },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
               "schema": {
@@ -1229,7 +1226,6 @@
               }
             }
           },
-          "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PUT rule": {
               "$ref": "./examples/Rule_Put.json"
@@ -1278,9 +1274,6 @@
                 "$ref": "#/definitions/Rule"
               }
             },
-            "202": {
-              "description": "The operation to add rule for resolver has been accepted and will complete asynchronously."
-            },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
               "schema": {
@@ -1288,7 +1281,6 @@
               }
             }
           },
-          "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PATCH rule": {
               "$ref": "./examples/Rule_Patch.json"
@@ -1325,9 +1317,6 @@
             "200": {
               "description": "The rule has been deleted."
             },
-            "202": {
-              "description": "The operation to delete rule has been accepted and will complete asynchronously."
-            },
             "204": {
               "description": "The rule was not found."
             },
@@ -1338,7 +1327,6 @@
               }
             }
           },
-          "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "DELETE rule": {
               "$ref": "./examples/Rule_Delete.json"
