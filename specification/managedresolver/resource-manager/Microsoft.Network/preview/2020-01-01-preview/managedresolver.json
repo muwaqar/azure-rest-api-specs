@@ -1594,28 +1594,28 @@
         }
       },
       "ManagedResolverRulesetLinkProperties": {
-        "description": "Represents the properties of a ruleset links to a managed DNS resolver.",
+        "description": "Represents the properties of a ruleset link to a managed DNS resolver.",
         "properties": {
           "managedResolverRuleset": {
             "description": "The reference to the managed resolver ruleset. This cannot be changed after creation.",
             "$ref": "#/definitions/SubResource"
           },
           "provisioningState": {
-            "description": "The current provisioning state of the managed DNS resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current provisioning state of the link. This is a read-only property and any attempt to set this value will be ignored.",
             "$ref": "#/definitions/ProvisioningState",
             "readOnly": true
           }
         }
       },
       "ManagedResolverRulesetLink": {
-        "description": "Describes a ruleset links to managed DNS resolver.",
+        "description": "Describes a ruleset link to managed DNS resolver.",
         "properties": {
           "etag": {
             "description": "The ETag of the ruleset link to managed DNS resolver.",
             "type": "string"
           },
           "properties": {
-            "description": "Properties of a ruleset links to managed DNS resolver.",
+            "description": "Properties of a ruleset link to managed DNS resolver.",
             "$ref": "#/definitions/ManagedResolverRulesetLinkProperties",
             "x-ms-client-flatten": true
           }
