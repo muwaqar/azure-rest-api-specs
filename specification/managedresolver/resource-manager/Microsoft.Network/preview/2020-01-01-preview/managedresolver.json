@@ -1436,6 +1436,54 @@
             }
           }
         }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolverRulesets/{rulesetName}/resolverLinks": {
+        "get": {
+          "tags": [
+            "ResolverLinks"
+          ],
+          "operationId": "ResolverLinks_List",
+          "description": "Lists resolver links to a specified ruleset.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/RulesetNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/ResolverLinkListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "GET resolver links by ruleset": {
+              "$ref": "./examples/ResolverLink_List.json"
+            }
+          }
+        }
       }
     },
     "definitions": {
@@ -1773,6 +1821,56 @@
             "type": "array",
             "items": {
               "$ref": "#/definitions/Rule"
+            }
+          },
+          "nextLink": {
+            "description": "The continuation token for the next page of results.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ResolverLinkProperties": {
+        "description": "Represents the properties of a resolver link to a ruleset.",
+        "properties": {
+          "managedResolver": {
+            "description": "The reference to the link for the current ruleset under the resolver.",
+            "$ref": "#/definitions/SubResource"
+          },
+          "provisioningState": {
+            "description": "The current provisioning state of the link. This is a read-only property and any attempt to set this value will be ignored.",
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true
+          }
+        }
+      },
+      "ResolverLink": {
+        "description": "Describes a resolver link to ruleset.",
+        "properties": {
+          "etag": {
+            "description": "The ETag of the resolver link to ruleset.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of a resolver link to ruleset.",
+            "$ref": "#/definitions/ResolverLinkProperties",
+            "x-ms-client-flatten": true
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ProxyResource"
+          }
+        ]
+      },
+      "ResolverLinkListResult": {
+        "description": "The response to an enumeration operation on resolver links to ruleset.",
+        "properties": {
+          "value": {
+            "description": "Enumeration of the resolver links to ruleset.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ResolverLink"
             }
           },
           "nextLink": {
