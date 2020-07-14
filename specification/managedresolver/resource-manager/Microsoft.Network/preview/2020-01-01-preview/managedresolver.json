@@ -42,14 +42,14 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/ManagedResolver"
+                "$ref": "#/definitions/Resolver"
               },
               "description": "Parameters supplied to the CreateOrUpdate operation."
             },
@@ -67,13 +67,13 @@
             "201": {
               "description": "The managed DNS resolver has been created.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolver"
+                "$ref": "#/definitions/Resolver"
               }
             },
             "200": {
               "description": "The managed DNS resolver has been updated.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolver"
+                "$ref": "#/definitions/Resolver"
               }
             },
             "202": {
@@ -89,7 +89,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PUT managed DNS resolver": {
-              "$ref": "./examples/ManagedResolverPut.json"
+              "$ref": "./examples/Resolver_Put.json"
             }
           }
         },
@@ -107,14 +107,14 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/ManagedResolver"
+                "$ref": "#/definitions/Resolver"
               },
               "description": "Parameters supplied to the Update operation."
             },
@@ -129,7 +129,7 @@
             "200": {
               "description": "The managed DNS resolver has been updated.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolver"
+                "$ref": "#/definitions/Resolver"
               }
             },
             "202": {
@@ -145,7 +145,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PATCH managed DNS resolver": {
-              "$ref": "./examples/ManagedResolverPatch.json"
+              "$ref": "./examples/Resolver_Patch.json"
             }
           }
         },
@@ -163,7 +163,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -192,7 +192,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "DELETE managed DNS resolver": {
-              "$ref": "./examples/ManagedResolverDelete.json"
+              "$ref": "./examples/Resolver_Delete.json"
             }
           }
         },
@@ -210,7 +210,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -220,7 +220,7 @@
             "200": {
               "description": "The managed DNS resolver was found.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolver"
+                "$ref": "#/definitions/Resolver"
               }
             },
             "default": {
@@ -232,7 +232,7 @@
           },
           "x-ms-examples": {
             "GET managed DNS resolver": {
-              "$ref": "./examples/ManagedResolverGet.json"
+              "$ref": "./examples/Resolver_Get.json"
             }
           }
         }
@@ -262,7 +262,7 @@
             "200": {
               "description": "The operation succeeded.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverListResult"
+                "$ref": "#/definitions/ResolverListResult"
               }
             },
             "default": {
@@ -277,7 +277,7 @@
           },
           "x-ms-examples": {
             "GET managed DNS resolvers by Resource Group": {
-              "$ref": "./examples/ManagedResolverListInResourceGroup.json"
+              "$ref": "./examples/Resolver_ListInResourceGroup.json"
             }
           }
         }
@@ -297,7 +297,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -310,7 +310,7 @@
             "200": {
               "description": "The operation succeeded.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverListResult"
+                "$ref": "#/definitions/ResolverListResult"
               }
             },
             "default": {
@@ -325,7 +325,7 @@
           },
           "x-ms-examples": {
             "GET managed DNS resolvers by subscription": {
-              "$ref": "./examples/ManagedResolverListInSubscription.json"
+              "$ref": "./examples/Resolver_ListInSubscription.json"
             }
           }
         }
@@ -345,7 +345,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/EndpointNameParameter"
@@ -395,7 +395,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PUT managed DNS resolver endpoint": {
-              "$ref": "./examples/EndpointPut.json"
+              "$ref": "./examples/Endpoint_Put.json"
             }
           }
         },
@@ -413,7 +413,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/EndpointNameParameter"
@@ -454,7 +454,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PATCH managed DNS resolver endpoint": {
-              "$ref": "./examples/EndpointPatch.json"
+              "$ref": "./examples/Endpoint_Patch.json"
             }
           }
         },
@@ -472,7 +472,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/EndpointNameParameter"
@@ -504,7 +504,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "DELETE managed DNS resolver endpoint": {
-              "$ref": "./examples/EndpointDelete.json"
+              "$ref": "./examples/Endpoint_Delete.json"
             }
           }
         },
@@ -522,7 +522,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/EndpointNameParameter"
@@ -547,7 +547,7 @@
           },
           "x-ms-examples": {
             "GET managed DNS resolver endpoint": {
-              "$ref": "./examples/EndpointGet.json"
+              "$ref": "./examples/Endpoint_Get.json"
             }
           }
         }
@@ -567,7 +567,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -595,7 +595,7 @@
           },
           "x-ms-examples": {
             "GET endpoints by managed DNS resolver": {
-              "$ref": "./examples/EndpointList.json"
+              "$ref": "./examples/Endpoint_List.json"
             }
           }
         }
@@ -615,17 +615,17 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetLinkNameParameter"
+              "$ref": "#/parameters/RulesetLinkNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetLink"
+                "$ref": "#/definitions/RulesetLink"
               },
               "description": "Parameters supplied to the CreateOrUpdate operation."
             },
@@ -643,13 +643,13 @@
             "201": {
               "description": "The ruleset link to the managed DNS resolver has been created.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetLink"
+                "$ref": "#/definitions/RulesetLink"
               }
             },
             "200": {
               "description": "The ruleset link to the managed DNS resolver has been updated.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetLink"
+                "$ref": "#/definitions/RulesetLink"
               }
             },
             "202": {
@@ -665,7 +665,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PUT managed DNS resolver ruleset link": {
-              "$ref": "./examples/ManagedResolverRulesetLinkPut.json"
+              "$ref": "./examples/RulesetLink_Put.json"
             }
           }
         },
@@ -683,17 +683,17 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetLinkNameParameter"
+              "$ref": "#/parameters/RulesetLinkNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetLink"
+                "$ref": "#/definitions/RulesetLink"
               },
               "description": "Parameters supplied to the Update operation."
             },
@@ -708,7 +708,7 @@
             "200": {
               "description": "The ruleset link to the managed DNS resolver has been updated.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetLink"
+                "$ref": "#/definitions/RulesetLink"
               }
             },
             "202": {
@@ -724,7 +724,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PATCH managed DNS resolver ruleset link": {
-              "$ref": "./examples/ManagedResolverRulesetLinkPatch.json"
+              "$ref": "./examples/RulesetLink_Patch.json"
             }
           }
         },
@@ -742,10 +742,10 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetLinkNameParameter"
+              "$ref": "#/parameters/RulesetLinkNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -774,7 +774,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "DELETE managed DNS resolver ruleset link": {
-              "$ref": "./examples/ManagedResolverRulesetLinkDelete.json"
+              "$ref": "./examples/RulesetLink_Delete.json"
             }
           }
         },
@@ -792,10 +792,10 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetLinkNameParameter"
+              "$ref": "#/parameters/RulesetLinkNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -805,7 +805,7 @@
             "200": {
               "description": "The ruleset link to the managed DNS resolver was found.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetLink"
+                "$ref": "#/definitions/RulesetLink"
               }
             },
             "default": {
@@ -817,7 +817,7 @@
           },
           "x-ms-examples": {
             "GET managed DNS resolver ruleset link": {
-              "$ref": "./examples/ManagedResolverRulesetLinkGet.json"
+              "$ref": "./examples/RulesetLink_Get.json"
             }
           }
         }
@@ -837,7 +837,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverNameParameter"
+              "$ref": "#/parameters/ResolverNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -850,7 +850,7 @@
             "200": {
               "description": "The operation succeeded.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetLinkListResult"
+                "$ref": "#/definitions/RulesetLinkListResult"
               }
             },
             "default": {
@@ -865,7 +865,7 @@
           },
           "x-ms-examples": {
             "GET ruleset links by managed DNS resolver": {
-              "$ref": "./examples/ManagedResolverRulesetLinkList.json"
+              "$ref": "./examples/RulesetLink_List.json"
             }
           }
         }
@@ -885,14 +885,14 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRuleset"
+                "$ref": "#/definitions/Ruleset"
               },
               "description": "Parameters supplied to the CreateOrUpdate operation."
             },
@@ -910,13 +910,13 @@
             "201": {
               "description": "The managed resolver ruleset has been created.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRuleset"
+                "$ref": "#/definitions/Ruleset"
               }
             },
             "200": {
               "description": "The managed resolver ruleset has been updated.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRuleset"
+                "$ref": "#/definitions/Ruleset"
               }
             },
             "202": {
@@ -932,7 +932,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PUT managed resolver ruleset": {
-              "$ref": "./examples/ManagedResolverRulesetPut.json"
+              "$ref": "./examples/Ruleset_Put.json"
             }
           }
         },
@@ -950,14 +950,14 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRuleset"
+                "$ref": "#/definitions/Ruleset"
               },
               "description": "Parameters supplied to the Update operation."
             },
@@ -972,7 +972,7 @@
             "200": {
               "description": "The managed resolver ruleset has been updated.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRuleset"
+                "$ref": "#/definitions/Ruleset"
               }
             },
             "202": {
@@ -988,7 +988,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PATCH managed resolver ruleset": {
-              "$ref": "./examples/ManagedResolverRulesetPatch.json"
+              "$ref": "./examples/Ruleset_Patch.json"
             }
           }
         },
@@ -1006,7 +1006,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -1035,7 +1035,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "DELETE managed resolver ruleset": {
-              "$ref": "./examples/ManagedResolverRulesetDelete.json"
+              "$ref": "./examples/Ruleset_Delete.json"
             }
           }
         },
@@ -1053,7 +1053,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -1063,7 +1063,7 @@
             "200": {
               "description": "The managed resolver ruleset was found.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRuleset"
+                "$ref": "#/definitions/Ruleset"
               }
             },
             "default": {
@@ -1075,7 +1075,7 @@
           },
           "x-ms-examples": {
             "GET managed resolver ruleset": {
-              "$ref": "./examples/ManagedResolverRulesetGet.json"
+              "$ref": "./examples/Ruleset_Get.json"
             }
           }
         }
@@ -1105,7 +1105,7 @@
             "200": {
               "description": "The operation succeeded.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetListResult"
+                "$ref": "#/definitions/RulesetListResult"
               }
             },
             "default": {
@@ -1120,7 +1120,7 @@
           },
           "x-ms-examples": {
             "GET managed resolver ruleset by resource group": {
-              "$ref": "./examples/ManagedResolverRulesetListInResourceGroup.json"
+              "$ref": "./examples/Ruleset_ListInResourceGroup.json"
             }
           }
         }
@@ -1147,7 +1147,7 @@
             "200": {
               "description": "The operation succeeded.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRulesetListResult"
+                "$ref": "#/definitions/RulesetListResult"
               }
             },
             "default": {
@@ -1162,7 +1162,7 @@
           },
           "x-ms-examples": {
             "GET managed resolver ruleset by subscription": {
-              "$ref": "./examples/ManagedResolverRulesetListInSubscription.json"
+              "$ref": "./examples/Ruleset_ListInSubscription.json"
             }
           }
         }
@@ -1182,17 +1182,17 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRuleNameParameter"
+              "$ref": "#/parameters/RuleNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRule"
+                "$ref": "#/definitions/Rule"
               },
               "description": "Parameters supplied to the CreateOrUpdate operation."
             },
@@ -1210,13 +1210,13 @@
             "201": {
               "description": "The managed resolver rule has been created.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRule"
+                "$ref": "#/definitions/Rule"
               }
             },
             "200": {
               "description": "The managed resolver rule has been updated.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRule"
+                "$ref": "#/definitions/Rule"
               }
             },
             "202": {
@@ -1232,7 +1232,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PUT managed resolver rule": {
-              "$ref": "./examples/ManagedResolverRulePut.json"
+              "$ref": "./examples/Rule_Put.json"
             }
           }
         },
@@ -1250,17 +1250,17 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRuleNameParameter"
+              "$ref": "#/parameters/RuleNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRule"
+                "$ref": "#/definitions/Rule"
               },
               "description": "Parameters supplied to the Update operation."
             },
@@ -1275,7 +1275,7 @@
             "200": {
               "description": "The managed resolver rule has been updated.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRule"
+                "$ref": "#/definitions/Rule"
               }
             },
             "202": {
@@ -1291,7 +1291,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "PATCH managed resolver rule": {
-              "$ref": "./examples/ManagedResolverRulePatch.json"
+              "$ref": "./examples/Rule_Patch.json"
             }
           }
         },
@@ -1309,10 +1309,10 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRuleNameParameter"
+              "$ref": "#/parameters/RuleNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -1341,7 +1341,7 @@
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
             "DELETE managed resolver rule": {
-              "$ref": "./examples/ManagedResolverRuleDelete.json"
+              "$ref": "./examples/Rule_Delete.json"
             }
           }
         },
@@ -1359,10 +1359,10 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRuleNameParameter"
+              "$ref": "#/parameters/RuleNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -1372,7 +1372,7 @@
             "200": {
               "description": "The managed resolver rule was found.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRule"
+                "$ref": "#/definitions/Rule"
               }
             },
             "default": {
@@ -1384,7 +1384,7 @@
           },
           "x-ms-examples": {
             "GET managed resolver rule": {
-              "$ref": "./examples/ManagedResolverRuleGet.json"
+              "$ref": "./examples/Rule_Get.json"
             }
           }
         }
@@ -1404,7 +1404,7 @@
               "$ref": "#/parameters/ResourceGroupNameParameter"
             },
             {
-              "$ref": "#/parameters/ManagedResolverRulesetNameParameter"
+              "$ref": "#/parameters/RulesetNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -1417,7 +1417,7 @@
             "200": {
               "description": "The operation succeeded.",
               "schema": {
-                "$ref": "#/definitions/ManagedResolverRuleListResult"
+                "$ref": "#/definitions/RuleListResult"
               }
             },
             "default": {
@@ -1432,14 +1432,14 @@
           },
           "x-ms-examples": {
             "GET managed resolver rules by ruleset": {
-              "$ref": "./examples/ManagedResolverRuleList.json"
+              "$ref": "./examples/Rule_List.json"
             }
           }
         }
       }
     },
     "definitions": {
-      "ManagedResolverProperties": {
+      "ResolverProperties": {
         "description": "Represents the properties of a managed DNS resolver.",
         "properties": {
           "virtualNetwork": {
@@ -1479,7 +1479,7 @@
           }
         }
       },
-      "ManagedResolver": {
+      "Resolver": {
         "description": "Describes a managed DNS resolver.",
         "properties": {
           "etag": {
@@ -1488,7 +1488,7 @@
           },
           "properties": {
             "description": "Properties of a managed DNS resolver.",
-            "$ref": "#/definitions/ManagedResolverProperties",
+            "$ref": "#/definitions/ResolverProperties",
             "x-ms-client-flatten": true
           }
         },
@@ -1498,14 +1498,14 @@
           }
         ]
       },
-      "ManagedResolverListResult": {
+      "ResolverListResult": {
         "description": "The response to an enumeration operation on managed DNS resolvers.",
         "properties": {
           "value": {
             "description": "Enumeration of the managed DNS resolvers.",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ManagedResolver"
+              "$ref": "#/definitions/Resolver"
             }
           },
           "nextLink": {
@@ -1593,7 +1593,7 @@
           }
         }
       },
-      "ManagedResolverRulesetLinkProperties": {
+      "RulesetLinkProperties": {
         "description": "Represents the properties of a ruleset link to a managed DNS resolver.",
         "properties": {
           "managedResolverRuleset": {
@@ -1607,7 +1607,7 @@
           }
         }
       },
-      "ManagedResolverRulesetLink": {
+      "RulesetLink": {
         "description": "Describes a ruleset link to managed DNS resolver.",
         "properties": {
           "etag": {
@@ -1616,7 +1616,7 @@
           },
           "properties": {
             "description": "Properties of a ruleset link to managed DNS resolver.",
-            "$ref": "#/definitions/ManagedResolverRulesetLinkProperties",
+            "$ref": "#/definitions/RulesetLinkProperties",
             "x-ms-client-flatten": true
           }
         },
@@ -1626,14 +1626,14 @@
           }
         ]
       },
-      "ManagedResolverRulesetLinkListResult": {
+      "RulesetLinkListResult": {
         "description": "The response to an enumeration operation on ruleset links to managed DNS resolver.",
         "properties": {
           "value": {
             "description": "Enumeration of the ruleset links to managed DNS resolver.",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ManagedResolverRulesetLink"
+              "$ref": "#/definitions/RulesetLink"
             }
           },
           "nextLink": {
@@ -1643,7 +1643,7 @@
           }
         }
       },
-      "ManagedResolverRulesetProperties": {
+      "RulesetProperties": {
         "description": "Represents the properties of a managed resolver ruleset.",
         "properties": {
           "maxNumberOfManagedResolverRules": {
@@ -1677,7 +1677,7 @@
           }
         }
       },
-      "ManagedResolverRuleset": {
+      "Ruleset": {
         "description": "Describes a managed resolver ruleset.",
         "properties": {
           "etag": {
@@ -1686,7 +1686,7 @@
           },
           "properties": {
             "description": "Properties of a managed resolver ruleset.",
-            "$ref": "#/definitions/ManagedResolverRulesetProperties",
+            "$ref": "#/definitions/RulesetProperties",
             "x-ms-client-flatten": true
           }
         },
@@ -1696,14 +1696,14 @@
           }
         ]
       },
-      "ManagedResolverRulesetListResult": {
+      "RulesetListResult": {
         "description": "The response to an enumeration operation on managed resolver rulesets.",
         "properties": {
           "value": {
             "description": "Enumeration of the managed resolver rulesets.",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ManagedResolverRuleset"
+              "$ref": "#/definitions/Ruleset"
             }
           },
           "nextLink": {
@@ -1713,7 +1713,7 @@
           }
         }
       },
-      "ManagedResolverRuleProperties": {
+      "RuleProperties": {
         "description": "Represents the properties of a managed resolver rule within the ruleset.",
         "properties": {
           "action": {
@@ -1746,7 +1746,7 @@
           }
         }
       },
-      "ManagedResolverRule": {
+      "Rule": {
         "description": "Describes a managed resolver rule within a ruleset.",
         "properties": {
           "etag": {
@@ -1755,7 +1755,7 @@
           },
           "properties": {
             "description": "Properties of a managed resolver rule within the ruleset.",
-            "$ref": "#/definitions/ManagedResolverRuleProperties",
+            "$ref": "#/definitions/RuleProperties",
             "x-ms-client-flatten": true
           }
         },
@@ -1765,14 +1765,14 @@
           }
         ]
       },
-      "ManagedResolverRuleListResult": {
+      "RuleListResult": {
         "description": "The response to an enumeration operation on managed resolver rules within a ruleset.",
         "properties": {
           "value": {
             "description": "Enumeration of the managed resolver rules within a ruleset.",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/ManagedResolverRule"
+              "$ref": "#/definitions/Rule"
             }
           },
           "nextLink": {
@@ -1956,7 +1956,7 @@
         "description": "The name of the resource group.",
         "x-ms-parameter-location": "method"
       },
-      "ManagedResolverNameParameter": {
+      "ResolverNameParameter": {
         "name": "managedResolverName",
         "in": "path",
         "required": true,
@@ -1972,7 +1972,7 @@
         "description": "The name of the managed DNS resolver endpoint.",
         "x-ms-parameter-location": "method"
       },
-      "ManagedResolverRulesetLinkNameParameter": {
+      "RulesetLinkNameParameter": {
         "name": "managedResolverRulesetLinkName",
         "in": "path",
         "required": true,
@@ -1980,7 +1980,7 @@
         "description": "The name of the managed ruleset link.",
         "x-ms-parameter-location": "method"
       },
-      "ManagedResolverRulesetNameParameter": {
+      "RulesetNameParameter": {
         "name": "managedResolverRulesetName",
         "in": "path",
         "required": true,
@@ -1988,7 +1988,7 @@
         "description": "The name of the managed resolver ruleset.",
         "x-ms-parameter-location": "method"
       },
-      "ManagedResolverRuleNameParameter": {
+      "RuleNameParameter": {
         "name": "managedResolverRuleName",
         "in": "path",
         "required": true,
