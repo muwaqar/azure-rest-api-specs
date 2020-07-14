@@ -1518,6 +1518,10 @@
       "EndpointProperties": {
         "description": "Represents the properties of a managed DNS resolver endpoint.",
         "properties": {
+          "subnet": {
+            "description": "The reference to the subnet used for IP configurations.",
+            "$ref": "#/definitions/SubResource"
+          },
           "ipConfigurations": {
             "description": "IP configurations for the endpoint.",
             "type": "array",
@@ -1781,10 +1785,6 @@
       "IpConfiguration": {
         "description": "Managed DNS resolver endpoint IP configuration",
         "properties": {
-          "subnet": {
-            "description": "The reference to the subnet used for IP configuration.",
-            "$ref": "#/definitions/SubResource"
-          },
           "privateIpAddress": {
             "description": "Private IP address for the IP configuration.",
             "type": "string"
