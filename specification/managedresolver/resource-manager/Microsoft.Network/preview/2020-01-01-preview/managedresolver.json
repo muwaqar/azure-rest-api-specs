@@ -1682,25 +1682,25 @@
       "RulesetProperties": {
         "description": "Represents the properties of a ruleset.",
         "properties": {
-          "maxNumberOfManagedResolverRules": {
+          "maxNumberOfRules": {
             "description": "The maximum number of rules that can be created in this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
-          "numberOfManagedResolverRules": {
+          "numberOfRules": {
             "description": "The current number of rules in this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
-          "maxNumberOfManagedResolverLinks": {
+          "maxNumberOfResolverLinks": {
             "description": "The maximum number of resolvers that can be linked to this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
-          "numberOfManagedResolverLinks": {
+          "numberOfResolverLinks": {
             "description": "The current number of resolvers that are linked to this ruleset. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
