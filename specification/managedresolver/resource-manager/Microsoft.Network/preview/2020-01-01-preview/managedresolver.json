@@ -33,7 +33,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_CreateOrUpdate",
-          "description": "Creates or updates a resolver. Does not modify virtual network or ruleset associated with the resolver.",
+          "description": "Creates or updates a resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -77,7 +77,7 @@
               }
             },
             "202": {
-              "description": "The resolver upsert operation has been accepted and will complete asynchronously."
+              "description": "The operation to upsert resolver has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -88,7 +88,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PUT resolver": {
+            "Upsert resolver": {
               "$ref": "./examples/Resolver_Put.json"
             }
           }
@@ -98,7 +98,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_Update",
-          "description": "Updates a resolver. Does not modify virtual network or ruleset associated with the resolver.",
+          "description": "Updates a resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -133,7 +133,7 @@
               }
             },
             "202": {
-              "description": "The resolver update operation has been accepted and will complete asynchronously."
+              "description": "The operation to update resolver has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -144,7 +144,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PATCH resolver": {
+            "Update resolver": {
               "$ref": "./examples/Resolver_Patch.json"
             }
           }
@@ -154,7 +154,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_Delete",
-          "description": "Deletes a resolver. WARNING: This operation cannot be undone. This operation does not delete or modify the virtual network or ruleset associated with the resolver.",
+          "description": "Deletes a resolver. WARNING: This operation cannot be undone.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -177,7 +177,7 @@
               "description": "The resolver has been deleted."
             },
             "202": {
-              "description": "The resolver delete operation has been accepted and will complete asynchronously."
+              "description": "The operation to delete resolver has been accepted and will complete asynchronously."
             },
             "204": {
               "description": "The resolver was not found."
@@ -191,7 +191,7 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "DELETE resolver": {
+            "Delete resolver": {
               "$ref": "./examples/Resolver_Delete.json"
             }
           }
@@ -201,7 +201,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_Get",
-          "description": "Gets a resolver properties.",
+          "description": "Gets properties of a resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -231,7 +231,7 @@
             }
           },
           "x-ms-examples": {
-            "GET resolver": {
+            "Retrieve resolver": {
               "$ref": "./examples/Resolver_Get.json"
             }
           }
@@ -243,7 +243,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_ListByResourceGroup",
-          "description": "Lists the resolvers within a resource group.",
+          "description": "Lists resolvers within a resource group.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -276,8 +276,8 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET resolvers by Resource Group": {
-              "$ref": "./examples/Resolver_ListInResourceGroup.json"
+            "List resolvers by resource group": {
+              "$ref": "./examples/Resolver_ListByResourceGroup.json"
             }
           }
         }
@@ -288,7 +288,7 @@
             "Resolvers"
           ],
           "operationId": "Resolvers_List",
-          "description": "Lists the resolvers in all resource groups in a subscription.",
+          "description": "Lists resolvers in all resource groups of a subscription.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -324,19 +324,19 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET resolvers by subscription": {
-              "$ref": "./examples/Resolver_ListInSubscription.json"
+            "List resolvers by subscription": {
+              "$ref": "./examples/Resolver_ListBySubscription.json"
             }
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/endpoints/{endpointName}": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/inboundEndpoints/{inboundEndpointName}": {
         "put": {
           "tags": [
-            "Endpoints"
+            "InboundEndpoints"
           ],
-          "operationId": "Endpoints_CreateOrUpdate",
-          "description": "Creates or updates a resolver endpoint.",
+          "operationId": "InboundEndpoints_CreateOrUpdate",
+          "description": "Creates or updates an inbound endpoint for a resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -348,14 +348,14 @@
               "$ref": "#/parameters/ResolverNameParameter"
             },
             {
-              "$ref": "#/parameters/EndpointNameParameter"
+              "$ref": "#/parameters/InboundEndpointNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/Endpoint"
+                "$ref": "#/definitions/InboundEndpoint"
               },
               "description": "Parameters supplied to the CreateOrUpdate operation."
             },
@@ -371,19 +371,19 @@
           ],
           "responses": {
             "201": {
-              "description": "The resolver endpoint has been created.",
+              "description": "The inbound endpoint for the resolver has been created.",
               "schema": {
-                "$ref": "#/definitions/Endpoint"
+                "$ref": "#/definitions/InboundEndpoint"
               }
             },
             "200": {
-              "description": "The resolver endpoint has been updated.",
+              "description": "The inbound endpoint for the resolver has been updated.",
               "schema": {
-                "$ref": "#/definitions/Endpoint"
+                "$ref": "#/definitions/InboundEndpoint"
               }
             },
             "202": {
-              "description": "The resolver endpoint upsert operation has been accepted and will complete asynchronously."
+              "description": "The operation to upsert inbound endpoint for the resolver has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -394,17 +394,17 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PUT resolver endpoint": {
-              "$ref": "./examples/Endpoint_Put.json"
+            "Upsert inbound endpoint for resolver": {
+              "$ref": "./examples/InboundEndpoint_Put.json"
             }
           }
         },
         "patch": {
           "tags": [
-            "Endpoints"
+            "InboundEndpoints"
           ],
-          "operationId": "Endpoints_Update",
-          "description": "Updates a resolver endpoint.",
+          "operationId": "InboundEndpoints_Update",
+          "description": "Updates an inbound endpoint for a resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -416,14 +416,14 @@
               "$ref": "#/parameters/ResolverNameParameter"
             },
             {
-              "$ref": "#/parameters/EndpointNameParameter"
+              "$ref": "#/parameters/InboundEndpointNameParameter"
             },
             {
               "name": "parameters",
               "in": "body",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/Endpoint"
+                "$ref": "#/definitions/InboundEndpoint"
               },
               "description": "Parameters supplied to the Update operation."
             },
@@ -436,13 +436,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The resolver endpoint has been updated.",
+              "description": "The inbound endpoint for the resolver has been updated.",
               "schema": {
-                "$ref": "#/definitions/Endpoint"
+                "$ref": "#/definitions/InboundEndpoint"
               }
             },
             "202": {
-              "description": "The resolver endpoint update operation has been accepted and will complete asynchronously."
+              "description": "The operation to update inbound endpoint for the resolver has been accepted and will complete asynchronously."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -453,17 +453,17 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "PATCH resolver endpoint": {
-              "$ref": "./examples/Endpoint_Patch.json"
+            "Update inbound endpoint for resolver": {
+              "$ref": "./examples/InboundEndpoint_Patch.json"
             }
           }
         },
         "delete": {
           "tags": [
-            "Endpoints"
+            "InboundEndpoints"
           ],
-          "operationId": "Endpoints_Delete",
-          "description": "Deletes a resolver endpoint. WARNING: This operation cannot be undone.",
+          "operationId": "InboundEndpoints_Delete",
+          "description": "Deletes an inbound endpoint for the resolver. WARNING: This operation cannot be undone.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -475,7 +475,7 @@
               "$ref": "#/parameters/ResolverNameParameter"
             },
             {
-              "$ref": "#/parameters/EndpointNameParameter"
+              "$ref": "#/parameters/InboundEndpointNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -486,13 +486,13 @@
           ],
           "responses": {
             "200": {
-              "description": "The resolver endpoint has been deleted."
+              "description": "The inbound endpoint for the resolver has been deleted."
             },
             "202": {
-              "description": "The resolver endpoint delete operation has been accepted and will complete asynchronously."
+              "description": "The operation to delete inbound endpoint for the resolver has been accepted and will complete asynchronously."
             },
             "204": {
-              "description": "The resolver endpoint was not found."
+              "description": "The inbound endpoint for the resolver was not found."
             },
             "default": {
               "description": "Default response. It will be deserialized as per the Error definition.",
@@ -503,17 +503,17 @@
           },
           "x-ms-long-running-operation": true,
           "x-ms-examples": {
-            "DELETE resolver endpoint": {
-              "$ref": "./examples/Endpoint_Delete.json"
+            "Delete inbound endpoint for resolver": {
+              "$ref": "./examples/InboundEndpoint_Delete.json"
             }
           }
         },
         "get": {
           "tags": [
-            "Endpoints"
+            "InboundEndpoints"
           ],
-          "operationId": "Endpoints_Get",
-          "description": "Gets a resolver endpoint properties.",
+          "operationId": "InboundEndpoints_Get",
+          "description": "Gets properties of an inbound endpoint for a resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -525,7 +525,7 @@
               "$ref": "#/parameters/ResolverNameParameter"
             },
             {
-              "$ref": "#/parameters/EndpointNameParameter"
+              "$ref": "#/parameters/InboundEndpointNameParameter"
             },
             {
               "$ref": "#/parameters/ApiVersionParameter"
@@ -533,9 +533,9 @@
           ],
           "responses": {
             "200": {
-              "description": "The resolver endpoint was found.",
+              "description": "The inbound endpoint for the resolver was found.",
               "schema": {
-                "$ref": "#/definitions/Endpoint"
+                "$ref": "#/definitions/InboundEndpoint"
               }
             },
             "default": {
@@ -546,19 +546,19 @@
             }
           },
           "x-ms-examples": {
-            "GET resolver endpoint": {
-              "$ref": "./examples/Endpoint_Get.json"
+            "Retrieve inbound endpoint for resolver": {
+              "$ref": "./examples/InboundEndpoint_Get.json"
             }
           }
         }
       },
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/endpoints": {
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/inboundEndpoints": {
         "get": {
           "tags": [
-            "Endpoints"
+            "InboundEndpoints"
           ],
-          "operationId": "Endpoints_List",
-          "description": "Lists the endpoints for the specified resolver.",
+          "operationId": "InboundEndpoints_List",
+          "description": "Lists inbound endpoints for a resolver.",
           "parameters": [
             {
               "$ref": "#/parameters/SubscriptionIdParameter"
@@ -580,7 +580,7 @@
             "200": {
               "description": "The operation succeeded.",
               "schema": {
-                "$ref": "#/definitions/EndpointListResult"
+                "$ref": "#/definitions/InboundEndpointListResult"
               }
             },
             "default": {
@@ -594,8 +594,278 @@
             "nextLinkName": "nextLink"
           },
           "x-ms-examples": {
-            "GET endpoints by resolver": {
-              "$ref": "./examples/Endpoint_List.json"
+            "List inbound endpoints by resolver": {
+              "$ref": "./examples/InboundEndpoint_List.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/outboundEndpoints/{outboundEndpointName}": {
+        "put": {
+          "tags": [
+            "OutboundEndpoints"
+          ],
+          "operationId": "OutboundEndpoints_CreateOrUpdate",
+          "description": "Creates or updates an outbound endpoint for a resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/OutboundEndpointNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/OutboundEndpoint"
+              },
+              "description": "Parameters supplied to the CreateOrUpdate operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            },
+            {
+              "$ref": "#/parameters/IfNoneMatchParameter"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "The outbound endpoint for the resolver has been created.",
+              "schema": {
+                "$ref": "#/definitions/OutboundEndpoint"
+              }
+            },
+            "200": {
+              "description": "The outbound endpoint for the resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/OutboundEndpoint"
+              }
+            },
+            "202": {
+              "description": "The operation to upsert outbound endpoint for the resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "Upsert outbound endpoint for resolver": {
+              "$ref": "./examples/OutboundEndpoint_Put.json"
+            }
+          }
+        },
+        "patch": {
+          "tags": [
+            "OutboundEndpoints"
+          ],
+          "operationId": "OutboundEndpoints_Update",
+          "description": "Updates an outbound endpoint for a resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/OutboundEndpointNameParameter"
+            },
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/OutboundEndpoint"
+              },
+              "description": "Parameters supplied to the Update operation."
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The outbound endpoint for the resolver has been updated.",
+              "schema": {
+                "$ref": "#/definitions/OutboundEndpoint"
+              }
+            },
+            "202": {
+              "description": "The operation to update outbound endpoint for the resolver has been accepted and will complete asynchronously."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "Update outbound endpoint for resolver": {
+              "$ref": "./examples/OutboundEndpoint_Patch.json"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "OutboundEndpoints"
+          ],
+          "operationId": "OutboundEndpoints_Delete",
+          "description": "Deletes an outbound endpoint for the resolver. WARNING: This operation cannot be undone.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/OutboundEndpointNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/IfMatchParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The outbound endpoint for the resolver has been deleted."
+            },
+            "202": {
+              "description": "The operation to delete outbound endpoint for the resolver has been accepted and will complete asynchronously."
+            },
+            "204": {
+              "description": "The outbound endpoint for the resolver was not found."
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-long-running-operation": true,
+          "x-ms-examples": {
+            "Delete outbound endpoint for resolver": {
+              "$ref": "./examples/OutboundEndpoint_Delete.json"
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "OutboundEndpoints"
+          ],
+          "operationId": "OutboundEndpoints_Get",
+          "description": "Gets properties of an outbound endpoint for a resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/OutboundEndpointNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The outbound endpoint for the resolver was found.",
+              "schema": {
+                "$ref": "#/definitions/OutboundEndpoint"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-examples": {
+            "Retrieve outbound endpoint for resolver": {
+              "$ref": "./examples/OutboundEndpoint_Get.json"
+            }
+          }
+        }
+      },
+      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/managedResolvers/{resolverName}/outboundEndpoints": {
+        "get": {
+          "tags": [
+            "OutboundEndpoints"
+          ],
+          "operationId": "OutboundEndpoints_List",
+          "description": "Lists outbound endpoints for a resolver.",
+          "parameters": [
+            {
+              "$ref": "#/parameters/SubscriptionIdParameter"
+            },
+            {
+              "$ref": "#/parameters/ResourceGroupNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ResolverNameParameter"
+            },
+            {
+              "$ref": "#/parameters/ApiVersionParameter"
+            },
+            {
+              "$ref": "#/parameters/TopParameter"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The operation succeeded.",
+              "schema": {
+                "$ref": "#/definitions/OutboundEndpointListResult"
+              }
+            },
+            "default": {
+              "description": "Default response. It will be deserialized as per the Error definition.",
+              "schema": {
+                "$ref": "#/definitions/CloudError"
+              }
+            }
+          },
+          "x-ms-pageable": {
+            "nextLinkName": "nextLink"
+          },
+          "x-ms-examples": {
+            "List outbound endpoints by resolver": {
+              "$ref": "./examples/OutboundEndpoint_List.json"
             }
           }
         }
@@ -1482,23 +1752,34 @@
             "description": "The reference to the virtual network. This cannot be changed after creation.",
             "$ref": "#/definitions/SubResource"
           },
-          "maxNumberOfEndpoints": {
-            "description": "The maximum number of endpoints that can be created for this resolver. This is a read-only property and any attempt to set this value will be ignored.",
+          "maxNumberOfInboundEndpoints": {
+            "description": "The maximum number of inbound endpoints that can be created for the resolver. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
-          "numberOfEndpoints": {
-            "description": "The current number of endpoints for this resolver. This is a read-only property and any attempt to set this value will be ignored.",
+          "numberOfInboundEndpoints": {
+            "description": "The current number of inbound endpoints for the resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "maxNumberOfOutboundEndpoints": {
+            "description": "The maximum number of outbound endpoints that can be created for the resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "numberOfOutboundEndpoints": {
+            "description": "The current number of outbound endpoints for the resolver. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "integer",
             "format": "int64",
             "readOnly": true
           },
           "managedResolverState": {
-            "description": "The status of the resolver. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current status of the resolver. This is a read-only property and any attempt to set this value will be ignored.",
             "type": "string",
             "enum": [
-              "InboundOnly",
               "Connected",
               "Disconnected"
             ],
@@ -1519,11 +1800,11 @@
         "description": "Describes a resolver.",
         "properties": {
           "etag": {
-            "description": "The ETag of the resolver.",
+            "description": "ETag of the resolver.",
             "type": "string"
           },
           "properties": {
-            "description": "Properties of a resolver.",
+            "description": "Properties of the resolver.",
             "$ref": "#/definitions/ResolverProperties",
             "x-ms-client-flatten": true
           }
@@ -1551,58 +1832,41 @@
           }
         }
       },
-      "EndpointProperties": {
-        "description": "Represents the properties of a resolver endpoint.",
+      "InboundEndpointProperties": {
+        "description": "Represents the properties of an inbound endpoint for a resolver.",
         "properties": {
           "subnet": {
             "description": "The reference to the subnet used for IP configurations.",
             "$ref": "#/definitions/SubResource"
           },
           "ipConfigurations": {
-            "description": "IP configurations for the endpoint.",
+            "description": "IP configurations for the inbound endpoint.",
             "type": "array",
             "items": {
               "$ref": "#/definitions/IpConfiguration"
             }
           },
-          "endpointState": {
-            "description": "The status of the endpoint. This is a read-only property and any attempt to set this value will be ignored.",
-            "type": "string",
-            "enum": [
-              "Active",
-              "Recovering",
-              "Inactive"
-            ],
-            "x-ms-enum": {
-              "name": "EndpointState",
-              "modelAsString": true
-            },
-            "readOnly": true
+          "scaleUnit": {
+            "description": "The scale unit for the inbound endpoint.",
+            "type": "integer"
           },
           "provisioningState": {
-            "description": "The current provisioning state of the resolver endpoint. This is a read-only property and any attempt to set this value will be ignored.",
+            "description": "The current provisioning state of the inbound endpoint. This is a read-only property and any attempt to set this value will be ignored.",
             "$ref": "#/definitions/ProvisioningState",
             "readOnly": true
           }
         }
       },
-      "Endpoint": {
-        "description": "Describes a resolver endpoint.",
+      "InboundEndpoint": {
+        "description": "Describes an inbound endpoint for a resolver.",
         "properties": {
           "etag": {
-            "description": "The ETag of the resolver endpoint.",
+            "description": "ETag of the inbound endpoint.",
             "type": "string"
           },
-          "zones": {
-            "description": "Availability zone for endpoint provisioning.",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "properties": {
-            "description": "Properties of a resolver endpoint.",
-            "$ref": "#/definitions/EndpointProperties",
+            "description": "Properties of the inbound endpoint.",
+            "$ref": "#/definitions/InboundEndpointProperties",
             "x-ms-client-flatten": true
           }
         },
@@ -1612,14 +1876,64 @@
           }
         ]
       },
-      "EndpointListResult": {
-        "description": "The response to an enumeration operation on resolver endpoints.",
+      "InboundEndpointListResult": {
+        "description": "The response to an enumeration operation on inbound endpoints for a resolver.",
         "properties": {
           "value": {
-            "description": "Enumeration of the resolver endpoints.",
+            "description": "Enumeration of the inbound endpoints for a resolver.",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/Endpoint"
+              "$ref": "#/definitions/InboundEndpoint"
+            }
+          },
+          "nextLink": {
+            "description": "The continuation token for the next page of results.",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "OutboundEndpointProperties": {
+        "description": "Represents the properties of an outbound endpoint for a resolver.",
+        "properties": {
+          "scaleUnit": {
+            "description": "The scale unit for the outbound endpoint.",
+            "type": "integer"
+          },
+          "provisioningState": {
+            "description": "The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored.",
+            "$ref": "#/definitions/ProvisioningState",
+            "readOnly": true
+          }
+        }
+      },
+      "OutboundEndpoint": {
+        "description": "Describes an outbound endpoint for a resolver.",
+        "properties": {
+          "etag": {
+            "description": "ETag of the outbound endpoint.",
+            "type": "string"
+          },
+          "properties": {
+            "description": "Properties of the outbound endpoint.",
+            "$ref": "#/definitions/OutboundEndpointProperties",
+            "x-ms-client-flatten": true
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ProxyResource"
+          }
+        ]
+      },
+      "OutboundEndpointListResult": {
+        "description": "The response to an enumeration operation on outbound endpoints for a resolver.",
+        "properties": {
+          "value": {
+            "description": "Enumeration of the outbound endpoints for a resolver.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/OutboundEndpoint"
             }
           },
           "nextLink": {
@@ -1647,7 +1961,7 @@
         "description": "Describes a ruleset link to resolver.",
         "properties": {
           "etag": {
-            "description": "The ETag of the ruleset link to resolver.",
+            "description": "ETag of the ruleset link to resolver.",
             "type": "string"
           },
           "properties": {
@@ -1717,7 +2031,7 @@
         "description": "Describes a ruleset.",
         "properties": {
           "etag": {
-            "description": "The ETag of the ruleset.",
+            "description": "ETag of the ruleset.",
             "type": "string"
           },
           "properties": {
@@ -1786,7 +2100,7 @@
         "description": "Describes a rule within a ruleset.",
         "properties": {
           "etag": {
-            "description": "The ETag of the rule.",
+            "description": "ETag of the rule.",
             "type": "string"
           },
           "properties": {
@@ -1836,7 +2150,7 @@
         "description": "Describes a resolver link to ruleset.",
         "properties": {
           "etag": {
-            "description": "The ETag of the resolver link to ruleset.",
+            "description": "ETag of the resolver link to ruleset.",
             "type": "string"
           },
           "properties": {
@@ -1869,7 +2183,7 @@
         }
       },
       "IpConfiguration": {
-        "description": "resolver endpoint IP configuration",
+        "description": "IP configuration.",
         "properties": {
           "privateIpAddress": {
             "description": "Private IP address for the IP configuration.",
@@ -1879,7 +2193,6 @@
             "description": "Private IP address allocation method.",
             "type": "string",
             "enum": [
-              "Static",
               "Dynamic"
             ],
             "x-ms-enum": {
@@ -2050,12 +2363,20 @@
         "description": "The name of the resolver.",
         "x-ms-parameter-location": "method"
       },
-      "EndpointNameParameter": {
-        "name": "endpointName",
+      "InboundEndpointNameParameter": {
+        "name": "inboundEndpointName",
         "in": "path",
         "required": true,
         "type": "string",
-        "description": "The name of the resolver endpoint.",
+        "description": "The name of the inbound endpoint for the resolver.",
+        "x-ms-parameter-location": "method"
+      },
+      "OutboundEndpointNameParameter": {
+        "name": "outboundEndpointName",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "The name of the outbound endpoint for the resolver.",
         "x-ms-parameter-location": "method"
       },
       "RulesetLinkNameParameter": {
@@ -2105,7 +2426,7 @@
         "required": false,
         "type": "string",
         "x-ms-client-name": "IfMatch",
-        "description": "The ETag of the resource. Omit this value to always overwrite the current resource. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes.",
+        "description": "ETag of the resource. Omit this value to always overwrite the current resource. Specify the last-seen ETag value to prevent accidentally overwriting any concurrent changes.",
         "x-ms-parameter-location": "method"
       },
       "IfNoneMatchParameter": {
