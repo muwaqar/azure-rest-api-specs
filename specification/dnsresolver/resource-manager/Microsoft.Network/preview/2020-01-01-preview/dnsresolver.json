@@ -1425,13 +1425,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/dnsResolverLinks": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/dnsResolvers": {
       "get": {
         "tags": [
-          "DnsResolverLinks"
+          "DnsResolvers"
         ],
-        "operationId": "DnsResolverLinks_ListByDnsForwardingRuleset",
-        "description": "Lists DNS resolver links to a DNS forwarding ruleset.",
+        "operationId": "DnsResolvers_ListByDnsForwardingRuleset",
+        "description": "Lists DNS resolvers linked to a DNS forwarding ruleset.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1451,9 +1451,9 @@
         ],
         "responses": {
           "200": {
-            "description": "List of DNS resolver links to the DNS forwarding ruleset.",
+            "description": "List of DNS resolvers linked to the DNS forwarding ruleset.",
             "schema": {
-              "$ref": "#/definitions/DnsResolverLinkListResult"
+              "$ref": "#/definitions/DnsResolverListResult"
             }
           },
           "default": {
@@ -1467,8 +1467,8 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "List DNS resolver links by DNS forwarding ruleset": {
-            "$ref": "./examples/DnsResolverLink_ListByDnsForwardingRuleset.json"
+          "List DNS resolvers by DNS forwarding ruleset": {
+            "$ref": "./examples/DnsResolver_ListByDnsForwardingRuleset.json"
           }
         }
       }
@@ -1476,9 +1476,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/dnsResolvers": {
       "get": {
         "tags": [
-          "DnsResolverLinks"
+          "DnsResolvers"
         ],
-        "operationId": "DnsResolverLinks_ListByVirtualNetwork",
+        "operationId": "DnsResolvers_ListByVirtualNetwork",
         "description": "Lists DNS resolvers for a virtual network.",
         "parameters": [
           {
@@ -1528,6 +1528,10 @@
       "properties": {
         "virtualNetwork": {
           "description": "The reference to the virtual network. This cannot be changed after creation.",
+          "$ref": "#/definitions/SubResource"
+        },
+        "dnsForwardingRuleset": {
+          "description": "The reference to the DNS forwarding ruleset to route outbound DNS queries for the resolver.",
           "$ref": "#/definitions/SubResource"
         },
         "maxNumberOfInboundEndpoints": {
@@ -1843,56 +1847,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/ForwardingRule"
-          }
-        },
-        "nextLink": {
-          "description": "The continuation token for the next page of results.",
-          "type": "string",
-          "readOnly": true
-        }
-      }
-    },
-    "DnsResolverLinkProperties": {
-      "description": "Represents the properties of a DNS resolver link.",
-      "properties": {
-        "dnsResolver": {
-          "description": "The reference to the DNS resolver.",
-          "$ref": "#/definitions/SubResource"
-        },
-        "provisioningState": {
-          "description": "The current provisioning state of the link. This is a read-only property and any attempt to set this value will be ignored.",
-          "$ref": "#/definitions/ProvisioningState",
-          "readOnly": true
-        }
-      }
-    },
-    "DnsResolverLink": {
-      "description": "Describes a DNS resolver link.",
-      "properties": {
-        "etag": {
-          "description": "ETag of the DNS resolver link.",
-          "type": "string"
-        },
-        "properties": {
-          "description": "Properties of the DNS resolver link.",
-          "$ref": "#/definitions/DnsResolverLinkProperties",
-          "x-ms-client-flatten": true
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ProxyResource"
-        }
-      ]
-    },
-    "DnsResolverLinkListResult": {
-      "description": "The response to an enumeration operation on DNS resolver links.",
-      "properties": {
-        "value": {
-          "description": "Enumeration of the DNS resolver links.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DnsResolverLink"
           }
         },
         "nextLink": {
