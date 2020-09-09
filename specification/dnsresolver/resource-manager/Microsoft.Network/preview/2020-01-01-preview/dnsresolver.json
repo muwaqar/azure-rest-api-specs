@@ -260,7 +260,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of DNS resolvers in the resource group.",
             "schema": {
               "$ref": "#/definitions/DnsResolverListResult"
             }
@@ -308,7 +308,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of DNS resolvers in the subscription.",
             "schema": {
               "$ref": "#/definitions/DnsResolverListResult"
             }
@@ -578,7 +578,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of inbound endpoints for the DNS resolver.",
             "schema": {
               "$ref": "#/definitions/InboundEndpointListResult"
             }
@@ -848,7 +848,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of outbound endpoints for the DNS resolver.",
             "schema": {
               "$ref": "#/definitions/OutboundEndpointListResult"
             }
@@ -1103,7 +1103,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of DNS forwarding rulesets in the resource group.",
             "schema": {
               "$ref": "#/definitions/DnsForwardingRulesetListResult"
             }
@@ -1145,7 +1145,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of DNS forwarding rulesets in the subscription.",
             "schema": {
               "$ref": "#/definitions/DnsForwardingRulesetListResult"
             }
@@ -1403,7 +1403,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of forwarding rules in the DNS forwarding ruleset.",
             "schema": {
               "$ref": "#/definitions/ForwardingRuleListResult"
             }
@@ -1451,7 +1451,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of DNS resolver links to the DNS forwarding ruleset.",
             "schema": {
               "$ref": "#/definitions/DnsResolverLinkListResult"
             }
@@ -1473,13 +1473,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/dnsResolverLinks": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/dnsResolvers": {
       "get": {
         "tags": [
           "DnsResolverLinks"
         ],
         "operationId": "DnsResolverLinks_ListByVirtualNetwork",
-        "description": "Lists DNS resolver links to a virtual network.",
+        "description": "Lists DNS resolvers for a virtual network.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1499,9 +1499,9 @@
         ],
         "responses": {
           "200": {
-            "description": "The operation succeeded.",
+            "description": "List of DNS resolvers for the virtual network.",
             "schema": {
-              "$ref": "#/definitions/DnsResolverLinkListResult"
+              "$ref": "#/definitions/DnsResolverListResult"
             }
           },
           "default": {
@@ -1515,8 +1515,8 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "List DNS resolver links by virtual network": {
-            "$ref": "./examples/DnsResolverLink_ListByVirtualNetwork.json"
+          "List DNS resolvers by virtual network": {
+            "$ref": "./examples/DnsResolver_ListByVirtualNetwork.json"
           }
         }
       }
