@@ -1,14 +1,14 @@
-# Managed DNS resolver
+# DNS resolver
 
 > see https://aka.ms/autorest
 
-This is the AutoRest configuration file for Managed DNS resolver.
+This is the AutoRest configuration file for DNS resolver.
 
 ---
 
 ## Getting Started
 
-To build the SDK for Managed DNS resolver, simply [Install AutoRest](https://aka.ms/autorest/install) and in this folder, run:
+To build the SDK for DNS resolver, simply [Install AutoRest](https://aka.ms/autorest/install) and in this folder, run:
 
 > `autorest`
 
@@ -22,7 +22,7 @@ To see additional help and options, run:
 
 ### Basic Information
 
-These are the global settings for the Managed DNS resolver API.
+These are the global settings for the DNS resolver API.
 
 ``` yaml
 openapi-type: arm
@@ -35,7 +35,7 @@ These settings apply only when `--tag=package-2020-01-preview` is specified on t
 
 ``` yaml $(tag) == 'package-2020-01-preview'
 input-file:
-  - Microsoft.Network/preview/2020-01-01-preview/managedresolver.json
+  - Microsoft.Network/preview/2020-01-01-preview/dnsresolver.json
 ```
 
 # Code Generation
@@ -59,9 +59,9 @@ Please also specify `--csharp-sdks-folder=<path to "SDKs" directory of your azur
 csharp:
   azure-arm: true
   license-header: MICROSOFT_MIT_NO_VERSION
-  namespace: Microsoft.Azure.Management.ManagedResolver
+  namespace: Microsoft.Azure.Management.DnsResolver
   payload-flattening-threshold: 2
-  output-folder: $(csharp-sdks-folder)/managedresolver/Microsoft.Azure.Management.ManagedResolver/src/Generated
+  output-folder: $(csharp-sdks-folder)/dnsresolver/Microsoft.Azure.Management.DnsResolver/src/Generated
   clear-output-folder: true
 ```
 
@@ -70,17 +70,13 @@ csharp:
 ``` yaml
 directive:
   - where: $.paths
-    from: managedresolver.json
+    from: dnsresolver.json
     suppress: OperationsAPIImplementation
     reason: Operation APIs for Microsoft.Network are to be defined in Network swagger.
   - where: $.definitions
-    from: managedresolver.json
+    from: dnsresolver.json
     suppress: TrackedResourceListByImmediateParent
     reason: Another list API naming approach is used over the specs.
-  - where: $.definitions.ManagedResolverRuleProperties.properties.disabled
-    from: managedresolver.json
-    suppress: EnumInsteadOfBoolean
-    reason: Booleans are used to indicate binary states of the property, enum is not appropriate.
   - where: $.definitions.Resource
     from: types.json
     suppress: DescriptionAndTitleMissing
@@ -99,7 +95,7 @@ require: $(this-folder)/../../../profiles/readme.md
 
 # all the input files across all versions
 input-file:
-  - $(this-folder)/Microsoft.Network/preview/2020-01-01-preview/managedresolver.json
+  - $(this-folder)/Microsoft.Network/preview/2020-01-01-preview/dnsresolver.json
 
 ```
 
