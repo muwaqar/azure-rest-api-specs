@@ -27,7 +27,7 @@
     }
   },
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{resolverName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}": {
       "put": {
         "tags": [
           "DnsResolvers"
@@ -330,7 +330,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{resolverName}/inboundEndpoints/{inboundEndpointName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}/inboundEndpoints/{inboundEndpointName}": {
       "put": {
         "tags": [
           "InboundEndpoints"
@@ -552,7 +552,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{resolverName}/inboundEndpoints": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}/inboundEndpoints": {
       "get": {
         "tags": [
           "InboundEndpoints"
@@ -600,7 +600,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{resolverName}/outboundEndpoints/{outboundEndpointName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}/outboundEndpoints/{outboundEndpointName}": {
       "put": {
         "tags": [
           "OutboundEndpoints"
@@ -822,7 +822,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{resolverName}/outboundEndpoints": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}/outboundEndpoints": {
       "get": {
         "tags": [
           "OutboundEndpoints"
@@ -870,7 +870,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{rulesetName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}": {
       "put": {
         "tags": [
           "DnsForwardingRulesets"
@@ -1167,7 +1167,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{rulesetName}/forwardingRules/{ruleName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/forwardingRules/{forwardingRuleName}": {
       "put": {
         "tags": [
           "ForwardingRules"
@@ -1377,7 +1377,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{rulesetName}/forwardingRules": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/forwardingRules": {
       "get": {
         "tags": [
           "ForwardingRules"
@@ -1425,7 +1425,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{rulesetName}/dnsResolverLinks": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/dnsResolverLinks": {
       "get": {
         "tags": [
           "DnsResolverLinks"
@@ -1961,7 +1961,7 @@
         "id": {
           "type": "string",
           "readOnly": true,
-          "description": "Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{resolverName}'."
+          "description": "Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}'."
         },
         "name": {
           "type": "string",
@@ -2080,7 +2080,7 @@
       "x-ms-parameter-location": "method"
     },
     "DnsResolverNameParameter": {
-      "name": "resolverName",
+      "name": "dnsResolverName",
       "in": "path",
       "required": true,
       "type": "string",
@@ -2104,7 +2104,7 @@
       "x-ms-parameter-location": "method"
     },
     "DnsForwardingRulesetNameParameter": {
-      "name": "rulesetName",
+      "name": "dnsForwardingRulesetName",
       "in": "path",
       "required": true,
       "type": "string",
@@ -2112,7 +2112,7 @@
       "x-ms-parameter-location": "method"
     },
     "ForwardingRuleNameParameter": {
-      "name": "ruleName",
+      "name": "forwardingRuleName",
       "in": "path",
       "required": true,
       "type": "string",
