@@ -1720,9 +1720,12 @@
     "DnsForwardingRulesetProperties": {
       "description": "Represents the properties of a DNS forwarding ruleset.",
       "properties": {
-        "dnsResolverOutboundEndpoint": {
-          "description": "The reference to the DNS resolver outbound endpoint that is used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers. This cannot be changed after creation.",
-          "$ref": "#/definitions/SubResource"
+        "dnsResolverOutboundEndpoints": {
+          "description": "The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubResource"
+          }
         },
         "maxNumberOfForwardingRules": {
           "description": "The maximum number of forwarding rules that can be created for the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.",
