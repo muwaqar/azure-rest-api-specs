@@ -1617,6 +1617,13 @@
     "InboundEndpointProperties": {
       "description": "Represents the properties of an inbound endpoint for a DNS resolver.",
       "properties": {
+        "metadata": {
+          "description": "Metadata attached to the inbound endpoint.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "ipConfigurations": {
           "description": "IP configurations for the inbound endpoint.",
           "type": "array",
@@ -1670,6 +1677,13 @@
     "OutboundEndpointProperties": {
       "description": "Represents the properties of an outbound endpoint for a DNS resolver.",
       "properties": {
+        "metadata": {
+          "description": "Metadata attached to the outbound endpoint.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "subnet": {
           "description": "The reference to the subnet used for the outbound endpoint.",
           "$ref": "#/definitions/SubResource"
@@ -1797,6 +1811,13 @@
     "ForwardingRuleProperties": {
       "description": "Represents the properties of a forwarding rule within a DNS forwarding ruleset.",
       "properties": {
+        "metadata": {
+          "description": "Metadata attached to the forwarding rule.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "targetDnsServers": {
           "description": "DNS servers to forward the DNS query to.",
           "type": "array",
@@ -1916,19 +1937,19 @@
       "description": "The core properties of ARM resources",
       "properties": {
         "id": {
+          "description": "Fully qualified ID for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}'.",
           "type": "string",
-          "readOnly": true,
-          "description": "Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}'."
+          "readOnly": true
         },
         "name": {
+          "description": "The name of the resource.",
           "type": "string",
-          "readOnly": true,
-          "description": "The name of the resource"
+          "readOnly": true
         },
         "type": {
+          "description": "The type of the resource. Example - 'Microsoft.Network/dnsResolvers'.",
           "type": "string",
-          "readOnly": true,
-          "description": "The type of the resource. Example - 'Microsoft.Network/dnsResolvers'."
+          "readOnly": true
         }
       },
       "x-ms-azure-resource": true
@@ -1937,6 +1958,7 @@
       "description": "The resource model definition for a ARM tracked top level resource",
       "properties": {
         "tags": {
+          "description": "Resource tags.",
           "type": "object",
           "additionalProperties": {
             "type": "string"
@@ -1945,16 +1967,15 @@
             "read",
             "create",
             "update"
-          ],
-          "description": "Resource tags."
+          ]
         },
+        "description": "The Azure Region where the resource lives.",
         "location": {
           "type": "string",
           "x-ms-mutability": [
             "read",
             "create"
-          ],
-          "description": "The Azure Region where the resource lives"
+          ]
         }
       },
       "allOf": [
