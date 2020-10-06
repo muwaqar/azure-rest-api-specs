@@ -1425,7 +1425,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/dnsResolvers": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}": {
       "get": {
         "tags": [
           "DnsResolvers"
@@ -1520,6 +1520,54 @@
           }
         }
       }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/dnsForwardingRulesets": {
+      "get": {
+        "tags": [
+          "DnsResolvers"
+        ],
+        "operationId": "DnsResolvers_ListByVirtualNetwork",
+        "description": "Lists DNS resolvers for a virtual network.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualNetworkNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/TopParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of DNS resolvers for the virtual network.",
+            "schema": {
+              "$ref": "#/definitions/DnsResolverListResult"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "List DNS resolvers by virtual network": {
+            "$ref": "./examples/DnsResolver_ListByVirtualNetwork.json"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1528,10 +1576,6 @@
       "properties": {
         "virtualNetwork": {
           "description": "The reference to the virtual network. This cannot be changed after creation.",
-          "$ref": "#/definitions/SubResource"
-        },
-        "dnsForwardingRuleset": {
-          "description": "The reference to the DNS forwarding ruleset to route outbound DNS queries for the resolver.",
           "$ref": "#/definitions/SubResource"
         },
         "maxNumberOfInboundEndpoints": {
