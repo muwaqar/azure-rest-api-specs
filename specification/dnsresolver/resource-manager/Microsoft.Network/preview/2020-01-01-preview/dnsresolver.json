@@ -2286,8 +2286,8 @@
             "update"
           ]
         },
-        "description": "The Azure Region where the resource lives.",
         "location": {
+          "description": "The Azure Region where the resource lives.",
           "type": "string",
           "x-ms-mutability": [
             "read",
