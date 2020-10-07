@@ -1661,18 +1661,18 @@
     "InboundEndpointProperties": {
       "description": "Represents the properties of an inbound endpoint for a DNS resolver.",
       "properties": {
-        "metadata": {
-          "description": "Metadata attached to the inbound endpoint.",
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
         "ipConfigurations": {
           "description": "IP configurations for the inbound endpoint.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/IpConfiguration"
+          }
+        },
+        "metadata": {
+          "description": "Metadata attached to the inbound endpoint.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
           }
         },
         "provisioningState": {
@@ -1721,16 +1721,16 @@
     "OutboundEndpointProperties": {
       "description": "Represents the properties of an outbound endpoint for a DNS resolver.",
       "properties": {
+        "subnet": {
+          "description": "The reference to the subnet used for the outbound endpoint.",
+          "$ref": "#/definitions/SubResource"
+        },
         "metadata": {
           "description": "Metadata attached to the outbound endpoint.",
           "type": "object",
           "additionalProperties": {
             "type": "string"
           }
-        },
-        "subnet": {
-          "description": "The reference to the subnet used for the outbound endpoint.",
-          "$ref": "#/definitions/SubResource"
         },
         "provisioningState": {
           "description": "The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored.",
@@ -1797,14 +1797,14 @@
           "format": "int64",
           "readOnly": true
         },
-        "maxNumberOfDnsResolverLinks": {
-          "description": "The maximum number of DNS resolvers that can be linked to the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+        "maxNumberOfVirtualNetworkLinks": {
+          "description": "The maximum number of virtual networks that can be linked to the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.",
           "type": "integer",
           "format": "int64",
           "readOnly": true
         },
-        "numberOfDnsResolverLinks": {
-          "description": "The current number of DNS resolvers that are linked to the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.",
+        "numberOfVirtualNetworkLinks": {
+          "description": "The current number of virtual networks that are linked to the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.",
           "type": "integer",
           "format": "int64",
           "readOnly": true
@@ -1855,18 +1855,18 @@
     "ForwardingRuleProperties": {
       "description": "Represents the properties of a forwarding rule within a DNS forwarding ruleset.",
       "properties": {
-        "metadata": {
-          "description": "Metadata attached to the forwarding rule.",
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
         "targetDnsServers": {
           "description": "DNS servers to forward the DNS query to.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/TargetDnsServer"
+          }
+        },
+        "metadata": {
+          "description": "Metadata attached to the forwarding rule.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
           }
         },
         "forwardingRuleState": {
@@ -1939,6 +1939,7 @@
           "description": "Private IP address allocation method.",
           "type": "string",
           "enum": [
+            "Static",
             "Dynamic"
           ],
           "x-ms-enum": {
