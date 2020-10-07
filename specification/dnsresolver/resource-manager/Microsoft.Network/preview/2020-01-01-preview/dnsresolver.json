@@ -1120,7 +1120,7 @@
         },
         "x-ms-examples": {
           "List DNS forwarding rulesets by resource group": {
-            "$ref": "./examples/DnsForwardingRuleset_ListInResourceGroup.json"
+            "$ref": "./examples/DnsForwardingRuleset_ListByResourceGroup.json"
           }
         }
       }
@@ -1162,7 +1162,7 @@
         },
         "x-ms-examples": {
           "List DNS forwarding rulesets by subscription": {
-            "$ref": "./examples/DnsForwardingRuleset_ListInSubscription.json"
+            "$ref": "./examples/DnsForwardingRuleset_ListBySubscription.json"
           }
         }
       }
@@ -1746,10 +1746,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/dnsForwardingRulesets": {
       "get": {
         "tags": [
-          "DnsResolvers"
+          "DnsForwardingRulesets"
         ],
-        "operationId": "DnsResolvers_ListByVirtualNetwork",
-        "description": "Lists DNS resolvers for a virtual network.",
+        "operationId": "DnsForwardingRulesets_ListByVirtualNetwork",
+        "description": "Lists DNS forwarding rulesets for a virtual network.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1769,9 +1769,9 @@
         ],
         "responses": {
           "200": {
-            "description": "List of DNS resolvers for the virtual network.",
+            "description": "List of DNS forwarding rulesets linked to the virtual network.",
             "schema": {
-              "$ref": "#/definitions/DnsResolverListResult"
+              "$ref": "#/definitions/DnsForwardingRulesetListResult"
             }
           },
           "default": {
@@ -1785,8 +1785,8 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "List DNS resolvers by virtual network": {
-            "$ref": "./examples/DnsResolver_ListByVirtualNetwork.json"
+          "List DNS forwarding rulesets linked to virtual network": {
+            "$ref": "./examples/DnsForwardingRuleset_ListByVirtualNetwork.json"
           }
         }
       }
