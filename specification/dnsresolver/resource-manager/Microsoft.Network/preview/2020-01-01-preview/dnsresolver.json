@@ -1426,12 +1426,234 @@
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}": {
+      "put": {
+        "tags": [
+          "VirtualNetworkLinks"
+        ],
+        "operationId": "VirtualNetworkLinks_CreateOrUpdate",
+        "description": "Creates or updates a virtual network link to a DNS forwarding ruleset.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/DnsForwardingRulesetNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualNetworkLinkNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkLink"
+            },
+            "description": "Parameters supplied to the CreateOrUpdate operation."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IfMatchParameter"
+          },
+          {
+            "$ref": "#/parameters/IfNoneMatchParameter"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The virtual network link to the DNS forwarding ruleset has been created.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkLink"
+            }
+          },
+          "200": {
+            "description": "The virtual network link to the DNS forwarding ruleset has been updated.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkLink"
+            }
+          },
+          "202": {
+            "description": "The operation to upsert virtual network link to the DNS forwarding ruleset has been accepted and will complete asynchronously."
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Upsert virtual network link to a DNS forwarding ruleset": {
+            "$ref": "./examples/VirtualNetworkLink_Put.json"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "VirtualNetworkLinks"
+        ],
+        "operationId": "VirtualNetworkLinks_Update",
+        "description": "Updates a virtual network link to a DNS forwarding ruleset.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/DnsForwardingRulesetNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualNetworkLinkNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkLink"
+            },
+            "description": "Parameters supplied to the Update operation."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IfMatchParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The virtual network link to the DNS forwarding ruleset has been updated.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkLink"
+            }
+          },
+          "202": {
+            "description": "The operation to update virtual network link to the DNS forwarding ruleset has been accepted and will complete asynchronously."
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Update virtual network link to a DNS forwarding ruleset": {
+            "$ref": "./examples/VirtualNetworkLink_Patch.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "VirtualNetworkLinks"
+        ],
+        "operationId": "VirtualNetworkLinks_Delete",
+        "description": "Deletes a virtual network link to a DNS forwarding ruleset. WARNING: This operation cannot be undone.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/DnsForwardingRulesetNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualNetworkLinkNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/IfMatchParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The virtual network link to the DNS forwarding ruleset has been deleted."
+          },
+          "202": {
+            "description": "The operation to delete virtual network link to the DNS forwarding ruleset has been accepted and will complete asynchronously."
+          },
+          "204": {
+            "description": "The virtual network link to the DNS forwarding ruleset was not found."
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Delete virtual network link to a DNS forwarding ruleset": {
+            "$ref": "./examples/VirtualNetworkLink_Delete.json"
+          }
+        }
+      },
       "get": {
         "tags": [
-          "DnsResolvers"
+          "VirtualNetworkLinks"
         ],
-        "operationId": "DnsResolvers_ListByDnsForwardingRuleset",
-        "description": "Lists DNS resolvers linked to a DNS forwarding ruleset.",
+        "operationId": "VirtualNetworkLinks_Get",
+        "description": "Gets properties of a virtual network link to a DNS forwarding ruleset.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/DnsForwardingRulesetNameParameter"
+          },
+          {
+            "$ref": "#/parameters/VirtualNetworkLinkNameParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The virtual network link to DNS forwarding ruleset was found.",
+            "schema": {
+              "$ref": "#/definitions/VirtualNetworkLink"
+            }
+          },
+          "default": {
+            "description": "Default response. It will be deserialized as per the Error definition.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieve virtual network link to a DNS forwarding ruleset": {
+            "$ref": "./examples/VirtualNetworkLink_Get.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks": {
+      "get": {
+        "tags": [
+          "VirtualNetworkLinks"
+        ],
+        "operationId": "VirtualNetworkLinks_List",
+        "description": "Lists virtual network links to a DNS forwarding ruleset.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -1451,9 +1673,9 @@
         ],
         "responses": {
           "200": {
-            "description": "List of DNS resolvers linked to the DNS forwarding ruleset.",
+            "description": "List of virtual network links to a DNS forwarding ruleset.",
             "schema": {
-              "$ref": "#/definitions/DnsResolverListResult"
+              "$ref": "#/definitions/VirtualNetworkLinkListResult"
             }
           },
           "default": {
@@ -1467,8 +1689,8 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "List DNS resolvers by DNS forwarding ruleset": {
-            "$ref": "./examples/DnsResolver_ListByDnsForwardingRuleset.json"
+          "List virtual network links to a DNS forwarding ruleset": {
+            "$ref": "./examples/VirtualNetworkLink_List.json"
           }
         }
       }
@@ -1924,6 +2146,56 @@
         }
       }
     },
+    "VirtualNetworkLinkProperties": {
+      "description": "Represents the properties of a virtual network link.",
+      "properties": {
+        "virtualNetwork": {
+          "description": "The reference to the virtual network. This cannot be changed after creation.",
+          "$ref": "#/definitions/SubResource"
+        },
+        "provisioningState": {
+          "description": "The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.",
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
+        }
+      }
+    },
+    "VirtualNetworkLink": {
+      "description": "Describes a virtual network link.",
+      "properties": {
+        "etag": {
+          "description": "ETag of the virtual network link.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties of the virtual network link.",
+          "$ref": "#/definitions/VirtualNetworkLinkProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ]
+    },
+    "VirtualNetworkLinkListResult": {
+      "description": "The response to an enumeration operation on virtual network links.",
+      "properties": {
+        "value": {
+          "description": "Enumeration of the virtual network links.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VirtualNetworkLink"
+          }
+        },
+        "nextLink": {
+          "description": "The continuation token for the next page of results.",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
     "IpConfiguration": {
       "description": "IP configuration.",
       "properties": {
@@ -2148,6 +2420,14 @@
       "required": true,
       "type": "string",
       "description": "The name of the virtual network.",
+      "x-ms-parameter-location": "method"
+    },
+    "VirtualNetworkLinkNameParameter": {
+      "name": "virtualNetworkLinkName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The name of the virtual network link.",
       "x-ms-parameter-location": "method"
     },
     "TopParameter": {
